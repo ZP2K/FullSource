@@ -1114,7 +1114,7 @@ HRESULT KG3DRepresentObjectPVS::Clear(BOOL bClearEntity)
         if (pObject)
             pObject->SetParentMatrix(NULL);
             
-        SAFE_RELEASE(*i);
+        SAFE_RELEASE(pObject);
     }
 
     m_setObjectVisiable.clear();           

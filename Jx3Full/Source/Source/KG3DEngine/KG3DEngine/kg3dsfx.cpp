@@ -2227,7 +2227,7 @@ HRESULT KG3DSFX::PlayAnimation(SFX_ANIMATION_PLAY sfxAnimationPlay, float fSpeed
         return m_Commands.AddCommand(new KG3DSfxCommand_PlayAnimation(sfxAnimationPlay, fSpeed, nOffsetTime), TRUE);
     }
 
-    return S_OK;
+    //return S_OK;
 }
 
 HRESULT KG3DSFX::PlayAnimationImpl(SFX_ANIMATION_PLAY sfxAnimationPlay, float fSpeed, int nOffsetTime)
@@ -4043,7 +4043,7 @@ HRESULT KG3DSFX::GetModelAnimationStart(float *pValue, size_t index)
 Exit0:
 	return hResult;
 
-	return S_OK;
+	//return S_OK;
 }
 
 HRESULT KG3DSFX::GetModelAnimationMode(DWORD *pValue, size_t index)

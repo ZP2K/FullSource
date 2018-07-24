@@ -630,7 +630,7 @@ HRESULT KG3DSceneModelEditor::AddRenderEntity(IKG3DResourceBase *pEntity, unsign
 	}	
 	return S_OK;
 //Exit0:
-	return E_FAIL;
+//	return E_FAIL;
 }
 ///End chentianhong
 ///chentianhong 2006-08-21,为了兼容，覆盖KG3DScene的同名方法。

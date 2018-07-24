@@ -1786,10 +1786,17 @@ DLLKG3DENGINE_API HRESULT Get3DEngineXLogicInterface(void** ppEngineXLogic); //I
 
 typedef struct _KG3DREGION_INFORMER_LOADFILE_PARAM 
 {
+	enum
+	{
+		INVALID_MAX_TEXTURE_ID,
+	};
 	INT nRegionXCount, nRegionZCount;
-	LPSTR strError;
+	INT nPixelTolerance, nEliminateIsoDataCount, nTotalValue;
+	std::string strError;
 	UINT uHowManyPixelsInOneRegion;
 	INT nSampleTimes;
+	INT m_bNeedPreviewTex;
+	DWORD dwRetTextureID;
 } KG3DREGION_INFORMER_LOADFILE_PARAM;
 
 #endif  //.height _KG3DINTERFACE_H_
