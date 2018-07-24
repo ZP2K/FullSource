@@ -3807,6 +3807,20 @@ HRESULT KG3DUI::LoadImageA(LPCTSTR szFilePath, LPDWORD pdwImageID, int bGray = 0
 	return E_NOTIMPL;
 }
 
+int KG3DUI::LockDiffuseVertexBuff(UINT uVertexCnt, K2DDiffuseVertex ** ppVer, UINT * pnRetStartVertex)
+{
+	return 0;
+}
+
+int KG3DUI::LockTex1VertexBuff(UINT uVertexCnt, K2DTex1Vertex ** ppVer, UINT * pnRetStartVertex)
+{
+	return 0;
+}
+
+void KG3DUI::ChangeDrawState(KDrawState DrawState)
+{
+}
+
 HRESULT KG3DUI::GrayImage(DWORD dwImageID, RECT const & DstRect, LPDWORD pdwNewImageID)
 {
 	return E_NOTIMPL;

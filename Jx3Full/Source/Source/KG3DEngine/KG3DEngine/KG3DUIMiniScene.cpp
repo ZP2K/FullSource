@@ -160,6 +160,116 @@ HRESULT KG3DUIMiniScene::Render(DWORD dwFlags)
 	return S_OK;
 }
 
+HRESULT KG3DUIMiniScene::RenderToSingleOutputWnd(IEKG3DSceneOutputWnd * piSceneOutputWnd)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DUIMiniScene::ScenePosToScreenXYZ(D3DXVECTOR3 const & vScenePos, float & fScreenX, float & fScreenY, float & fZ)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DUIMiniScene::GetSceneParam(int * pLogicStartX, int * pLogicStartZ, float & fCellLength, float & fLogicalCellCmLength, float & fTerrainMinHeight, float & fPointPerAltitude, float & fAltitudeUnit)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DUIMiniScene::GetSelectModelList(const D3DXVECTOR2 & vPosScreen, BOOL bGetNearestOrAll, unsigned uMaxCount, IKG3DModel * pRetModelList[], unsigned * puRetRealCount)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DUIMiniScene::GetSelectModelList(const D3DXVECTOR3 & vRayOrig, const D3DXVECTOR3 & vRayDir, BOOL bGetNearestOrAll, unsigned uMaxCount, IKG3DModel * pRetModelList[], unsigned * puRetRealCount)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DUIMiniScene::GetSelectPosition(D3DXVECTOR2 const & vScale, D3DXVECTOR3 & vPosition, BOOL bNotIntersectTerrain, BOOL bNotIntersectTObject)
+{
+	return E_NOTIMPL;
+}
+
+IKG3DResourceBase * KG3DUIMiniScene::AddFullScreenEntity(LPCSTR strName, LPCSTR strAni, BOOL bLoop, BOOL bClearRT, DWORD dwClearColor, BOOL bAutoFit)
+{
+	return nullptr;
+}
+
+HRESULT KG3DUIMiniScene::RemoveFullScreenEntity(IKG3DResourceBase * pEntity)
+{
+	return E_NOTIMPL;
+}
+
+BOOL KG3DUIMiniScene::RayIntersection(const D3DXVECTOR3 & vSrc, const D3DXVECTOR3 & vNormalizedDir, FLOAT * pfRet, FLOAT fTestRange, BOOL bCheckTerrain)
+{
+	return 0;
+}
+
+HRESULT KG3DUIMiniScene::AddOutputWindow(int nOutPutWndID)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DUIMiniScene::SetActorOnFoliage(D3DXVECTOR3 & vActorPos, BOOL bIsMainActor)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DUIMiniScene::SetBatchProjectionCenter(const D3DXVECTOR3 & vPos)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DUIMiniScene::SetParabolaPosition(D3DXVECTOR3 * pVecPos, int nNodeNum)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DUIMiniScene::SetParabolaTexture(LPCSTR pTextureName)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DUIMiniScene::SetParabolaRenderEnable(BOOL bRenderEnale)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DUIMiniScene::EnablePostRenderEffect(PostRenderEffectType nType, BOOL bEnable)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DUIMiniScene::PreLoadResource(LPCTSTR cszFileName, BOOL bSync)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DUIMiniScene::UnPreLoadResource(LPCTSTR cszFileName)
+{
+	return E_NOTIMPL;
+}
+
+BOOL KG3DUIMiniScene::IsSREntityCreated(DWORD dwSREntityID)
+{
+	return 0;
+}
+
+BOOL KG3DUIMiniScene::BindEntityToSREntity(DWORD dwSREntityID, IKG3DResourceBase * pEntity)
+{
+	return 0;
+}
+
+HRESULT KG3DUIMiniScene::LoadSceneTestHeight()
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DUIMiniScene::SetTrackBlurParam(D3DXVECTOR2 vec2TBCenter, float fTBSampleStrength, float fTBSampleDist)
+{
+	return E_NOTIMPL;
+}
+
 
 HRESULT KG3DUIMiniScene::AddRenderEntity(IKG3DResourceBase* pEntity, unsigned uClass, BOOL bSelectable,BOOL bLight)
 {

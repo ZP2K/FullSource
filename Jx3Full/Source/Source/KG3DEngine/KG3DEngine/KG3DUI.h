@@ -12,14 +12,46 @@
 
 //--------------------------------------------------------------------------------------------------------------------------
 
-struct KG3DUIVertex2;
-struct KG3DUIText2;
-struct KG3DUILine2;
-struct KG3DUIRect2;
-struct KG3DUIImage2;
+struct KG3DUIVertex2
+{
+	D3DCOLOR crDiffuse;
+	D3DXVECTOR2 v2Vertex;
+};
+struct KG3DUIText2
+{
+	DWORD dwFontID;
+	FLOAT fScale, fSpacing;
+	LPCWSTR wszText;
+	std::size_t nTextLength;
+	D3DXVECTOR2 v2Min, v2Max;
+	BYTE byShadow, byBorder, byAlpha;
+	D3DCOLOR crShadow, crBorder, crFont;
+};
+struct KG3DUILine2
+{
+	D3DCOLOR crMin, crMax;
+	D3DXVECTOR2 v2Min, v2Max;
+};
+struct KG3DUIRect2
+{
+	D3DCOLOR crDiffuse;
+	D3DXVECTOR2 v2Min, v2Max;
+};
+struct KG3DUIImage2
+{
+	D3DXCOLOR crDiffuse;
+	D3DXVECTOR2 v2Min, v2Max;
+	D3DXVECTOR2 v2UVMin, v2UVMax;
+};
 struct KG3DUIScene2;
 struct KG3DUIRectPart2;
-struct KG3DUIImagePart2;
+struct KG3DUIImagePart2
+{
+	FLOAT fRatio;
+	DWORD dwType;
+	D3DXVECTOR2 v2Min, v2Max;
+	D3DXVECTOR2 v2UVMin, v2UVMax;
+};
 struct KG3DUIImageRotate2;
 
 class KG3DUIRenderStateGuard
@@ -164,34 +196,6 @@ typedef std::list<KG3DUIMiniScene*> KG3DUIMiniScenePtrList;
 
 class KG3DUI : public IKG3DUI
 {
-private:
-	struct K2DDiffuseVertex
-	{
-		enum { FVF = D3DFVF_XYZ | D3DFVF_DIFFUSE };
-
-		FLOAT x, y, z;		// The transformed position for the vertex
-		D3DCOLOR color;			// The vertex color
-	};
-
-	struct K2DTex1Vertex
-	{
-		enum { FVF = D3DFVF_XYZ | D3DFVF_DIFFUSE | D3DFVF_TEX1 };
-
-		FLOAT x, y, z;		// The transformed position for the vertex
-		D3DCOLOR color;		// The vertex color
-		FLOAT tu,tv;
-	};
-
-	enum KDrawState
-	{
-		DRAW_STATE_NONE,
-		DRAW_STATE_LINE,
-		DRAW_STATE_FILL,
-		DRAW_STATE_TEXT,
-		DRAW_STATE_IMAGE,
-		DRAW_STATE_SCENE,
-	};
-
 public:
 	KG3DUI();
 	virtual ~KG3DUI();
@@ -316,7 +320,7 @@ private:
 
 	HRESULT BeginRenderToTexture(LPDIRECT3DTEXTURE9 pTexture, UINT uMipmapLevel);
 
-	void ChangeDrawState(KDrawState DrawState);
+	//void ChangeDrawState(KDrawState DrawState);
 
 private:
     IKG3DeviceCallback*                 m_pCallback;
@@ -386,20 +390,20 @@ private:
 	virtual HRESULT OnResetViewport(UINT uWidth, UINT uHeight) override;
 	virtual HRESULT SetCodePage(unsigned int uCodePage) override;
 	virtual unsigned int GetCodePage() override;
-	virtual int LockDiffuseVertexBuff(UINT uVertexCnt, K2DDiffuseVertex ** ppVer, UINT * pnRetStartVertex) override;
+	virtual int LockDiffuseVertexBuff(UINT uVertexCnt, K2DDiffuseVertex** ppVer, UINT* pnRetStartVertex) override;
 	virtual int UnLockDiffuseVertexBuff() override;
 	virtual size_t GetDiffuseVertexNums() override;
 	virtual HRESULT DrawPrimitive(D3DPRIMITIVETYPE PrimitiveType, UINT StartVertex, UINT nCount) override;
-	virtual int LockTex1VertexBuff(UINT uVertexCnt, K2DTex1Vertex ** ppVer, UINT * pnRetStartVertex) override;
+	virtual int LockTex1VertexBuff(UINT uVertexCnt, K2DTex1Vertex** ppVer, UINT* pnRetStartVertex) override;
 	virtual int UnLockTex1VertexBuff() override;
 	virtual size_t GetTex1VertexNums() override;
 	virtual HRESULT DrawPrimitive(D3DPRIMITIVETYPE PrimitiveType, DWORD_PTR dwTextureID, UINT StartVertex, UINT nCount) override;
 	virtual HRESULT BeginDrawMultiScene() override;
 	virtual HRESULT EndDrawMultiScene() override;
-	virtual DWORD_PTR GetImageTexture(DWORD dwImageID, D3DFORMAT * pFormat) override;
+	virtual DWORD_PTR GetImageTexture(DWORD dwImageID, D3DFORMAT* pFormat) override;
 	virtual void ChangeDrawState(KDrawState DrawState) override;
 	virtual HRESULT GetTextureRenderData(DWORD_PTR dwTextureID, UINT uWidth, UINT uHeight, BYTE * pData, size_t uLength, BOOL bUpToDown) override;
-	virtual HRESULT CreateTexture(UINT uWidth, UINT uHeight, DWORD_PTR * pdwTextureID) override;
+	virtual HRESULT CreateTexture(UINT uWidth, UINT uHeight, DWORD_PTR* pdwTextureID) override;
 	virtual void ReleaseTexture(DWORD_PTR dwTextureID) override;
 	virtual IKG3DFontTexture * GetFont(DWORD dwFontID) override;
 	virtual HRESULT GetTextRange(DWORD dwFontID, LPCWSTR wszText, int nTextLen, LPCWSTR wszEnd, FLOAT fCursorPos, FLOAT fSpace, FLOAT fScale, LPINT lpCharPos, FLOAT & fWidth, FLOAT & fHeight, int nBorder = 0) const override;
