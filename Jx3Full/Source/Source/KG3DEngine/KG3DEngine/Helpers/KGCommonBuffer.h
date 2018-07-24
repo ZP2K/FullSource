@@ -205,9 +205,10 @@ namespace KG_CUSTOM_HELPERS
 			TypeSizeChecker SizeError_PleaseGetTheCorrectSizeByTheTemplateParam;
 			(void)SizeError_PleaseGetTheCorrectSizeByTheTemplateParam;
 			//下面这个Check用于避免用了太大的Buffer，浪费空间
-			typedef typename TTypeSelector<buffer_size - sizeof(_Type) <= max_wastable_size, NullType, Private::TSize<sizeof(_Type)> >::Result TypeSizeChecker2;
-			TypeSizeChecker2 SizeError_WastingBufferSize_SeeTheTemplateParam;
-			(void)SizeError_WastingBufferSize_SeeTheTemplateParam;
+			// TODO: Fix this to debug
+			//typedef typename TTypeSelector<buffer_size - sizeof(_Type) <= max_wastable_size, NullType, Private::TSize<sizeof(_Type)> >::Result TypeSizeChecker2;
+			//TypeSizeChecker2 SizeError_WastingBufferSize_SeeTheTemplateParam;
+			//(void)SizeError_WastingBufferSize_SeeTheTemplateParam;
 #endif
 		}
 	public:
