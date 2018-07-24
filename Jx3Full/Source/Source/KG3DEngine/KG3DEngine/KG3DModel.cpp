@@ -2907,6 +2907,9 @@ HRESULT KG3DModel::SetOBJPropertyByType(enuModelType eModelType)
 void KG3DModel::SetDetailColor(int index1, int index2, int index3)
 {
 }
+void KG3DModel::SetRotationCenter(const D3DXVECTOR3 & pValue)
+{
+}
 void KG3DModel::SetScalingRotation(D3DXQUATERNION* pValue)
 {
 	BOOL bIsPassRecord = FALSE;

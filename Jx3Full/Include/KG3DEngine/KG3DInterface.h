@@ -460,6 +460,7 @@ public:
 
 	// detail data
 	virtual void SetDetailColor(int index1, int index2, int index3) = 0;
+	virtual void SetRotationCenter(const D3DXVECTOR3& pValue) = 0;
 };
 
 

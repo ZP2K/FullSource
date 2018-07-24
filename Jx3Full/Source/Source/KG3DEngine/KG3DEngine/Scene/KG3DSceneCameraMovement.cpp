@@ -428,8 +428,7 @@ HRESULT	KG3DSceneCameraMovement::SetCurCamAniName( LPCTSTR pCamAniName )
         m_pCurCameraAnimation->SetName(pCamAniName);
 		return S_OK;
 	}
-	return E_FAIL;
-			
+	//return E_FAIL;
 }
 HRESULT KG3DSceneCameraMovement::GetCurCamAniIndex(DWORD *pdwRetAnimationIndex)
 {

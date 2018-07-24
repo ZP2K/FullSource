@@ -211,7 +211,7 @@ public:
 		KG_PROCESS_ERROR(ppT);
 		*ppT = NULL;
 
-		hResult = Get1NewResourcePointer(ppT, dwType, Option);
+		hResult = this->Get1NewResourcePointer(ppT, dwType, Option);
 		KG_COM_PROCESS_ERROR(hResult);
 
 		(*ppT)->AddRef();

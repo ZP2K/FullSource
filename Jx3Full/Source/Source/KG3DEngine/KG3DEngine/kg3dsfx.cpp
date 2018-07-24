@@ -7197,6 +7197,10 @@ KG3DSFXSuede::~KG3DSFXSuede()
    UnInit();
 }
 
+void KG3DSFXSuede::SetRotationCenter(const D3DXVECTOR3 & pValue)
+{
+}
+
 HRESULT KG3DSFXSuede::LoadFromFile(IFile* pFile)
 {
     HRESULT hr = E_FAIL;
