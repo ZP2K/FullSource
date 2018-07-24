@@ -12,6 +12,15 @@
 
 //--------------------------------------------------------------------------------------------------------------------------
 
+enum KG3DUIPartType
+{
+	KG3DUI_PART_TYPE_TIMER,
+	KG3DUI_PART_TYPE_X_MIN_TO_MAX,
+	KG3DUI_PART_TYPE_X_MAX_TO_MIN,
+	KG3DUI_PART_TYPE_Y_MIN_TO_MAX,
+	KG3DUI_PART_TYPE_Y_MAX_TO_MIN,
+};
+
 struct KG3DUIVertex2
 {
 	D3DCOLOR crDiffuse;
@@ -39,20 +48,41 @@ struct KG3DUIRect2
 };
 struct KG3DUIImage2
 {
+	DWORD dwImageID;
 	D3DXCOLOR crDiffuse;
 	D3DXVECTOR2 v2Min, v2Max;
 	D3DXVECTOR2 v2UVMin, v2UVMax;
 };
-struct KG3DUIScene2;
-struct KG3DUIRectPart2;
+struct KG3DUIScene2
+{
+	DWORD dwFlags;
+	D3DXVECTOR2 v2Min, v2Max;
+	IKG3DScene* p3DScene;
+};
+struct KG3DUIRectPart2
+{
+	DWORD dwType;
+	FLOAT fRatio;
+	D3DCOLOR crDiffuse;
+	D3DXVECTOR2 v2Min, v2Max;
+};
 struct KG3DUIImagePart2
 {
 	FLOAT fRatio;
+	DWORD dwImageID;
 	DWORD dwType;
+	D3DCOLOR crDiffuse;
 	D3DXVECTOR2 v2Min, v2Max;
 	D3DXVECTOR2 v2UVMin, v2UVMax;
 };
-struct KG3DUIImageRotate2;
+struct KG3DUIImageRotate2
+{
+	FLOAT fRotationCW;
+	DWORD dwImageID;
+	D3DCOLOR crDiffuse;
+	D3DXVECTOR2 v2Min, v2Max;
+	D3DXVECTOR2 v2UVMin, v2UVMax;
+};
 
 class KG3DUIRenderStateGuard
 {
