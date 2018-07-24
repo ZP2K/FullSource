@@ -233,9 +233,9 @@ HRESULT KG3DSceneDataInterfaceCore::Request_ModifyEntityInformation(UINT uHandle
 		return S_OK;
 	}
 
-	hr = S_OK;
-Exit0:
-	return hr;
+//	hr = S_OK;
+//Exit0:
+//	return hr;
 }
 
 
@@ -260,9 +260,9 @@ HRESULT KG3DSceneDataInterfaceCore::GetEntityInformation(UINT uHandle,DWORD* pdw
 		return pEntityInfo->GetData(pData);
 	}
 
-	hr = S_OK;
-Exit0:
-	return hr;
+//	hr = S_OK;
+//Exit0:
+//	return hr;
 }
 
 HRESULT KG3DSceneDataInterfaceCore::GetTerrainInformation(UINT uHandle,DWORD* pdwDataType,DWORD* pdwLength,PVOID pData)

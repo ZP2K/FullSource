@@ -100,7 +100,7 @@ struct KG3DSceneDataClip
 		}
 		else
 			return FALSE;
-		return FALSE;
+		//return FALSE;
 	}
 
 	HRESULT SaveDataToFile(LPCTSTR pFileName);

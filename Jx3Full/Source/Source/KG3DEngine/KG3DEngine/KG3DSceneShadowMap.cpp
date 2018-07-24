@@ -745,7 +745,7 @@ HRESULT KG3DPointLightShadow::ExportToCubeSurface(KG3DRenderTargetTool* pTool,LP
 
 	{
 		D3DXVECTOR2 A(0,0);
-		D3DXVECTOR2 C(m_vShadowMap.m_dwShadowmapSize,m_vShadowMap.m_dwShadowmapSize);
+		D3DXVECTOR2 C(static_cast<FLOAT>(m_vShadowMap.m_dwShadowmapSize),static_cast<FLOAT>(m_vShadowMap.m_dwShadowmapSize));
 
 		if(bOutputDepth)
 		{
