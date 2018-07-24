@@ -1,0 +1,538 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Src\Script">
+      <UniqueIdentifier>{71d0ba1d-d446-48e0-a291-4ad5b73ff2d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Case">
+      <UniqueIdentifier>{504db66f-6986-440e-bab6-1dac28c39ae4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Common">
+      <UniqueIdentifier>{f54331aa-905c-4257-85e9-e0e486b58de5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Config">
+      <UniqueIdentifier>{e18dfef7-d52e-4fa0-aee8-5887314460df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Driver">
+      <UniqueIdentifier>{2edb3c2a-58d2-439b-a7d6-c23ed98061bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Driver\File">
+      <UniqueIdentifier>{7a229a16-1fc7-4fad-81f2-c9efd546db00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Driver\Graphic">
+      <UniqueIdentifier>{cc4f2ac4-5412-4db1-a4b7-72e15370834e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Driver\Input">
+      <UniqueIdentifier>{7895e595-b007-4516-9727-7e5bec3b1977}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Driver\Sound">
+      <UniqueIdentifier>{ef80a263-0902-47fe-9c43-af43ed63a789}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Elem">
+      <UniqueIdentifier>{cec14e01-ff9d-4a78-9f94-289a9d1b8088}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Elem\BuildAgent">
+      <UniqueIdentifier>{92f2cd78-0ae1-4dd0-9e1a-8267c28152ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Elem\Components">
+      <UniqueIdentifier>{ebdf5bf7-6c43-42cb-81f9-8b70607287fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Elem\Widget">
+      <UniqueIdentifier>{3a285027-05e5-456b-906d-f9a6b3f5a99b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Scheme">
+      <UniqueIdentifier>{40848cdd-1a6c-4489-b5e4-f44438276a03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Text">
+      <UniqueIdentifier>{af2790f5-6f34-4acd-bdd7-c40e5702d376}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface">
+      <UniqueIdentifier>{41203fff-7ba2-4f04-8f3c-812249fef53a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{5ee61625-6bdd-4385-8827-78bd38a35c34}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="KGUI.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="script\kbasescripttable.cpp">
+      <Filter>Src\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="script\kconstmgr.cpp">
+      <Filter>Src\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="script\kfileclassscripttable.cpp">
+      <Filter>Src\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="script\khotkeyclassscripttable.cpp">
+      <Filter>Src\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="script\kitemhandleclassscripttable.cpp">
+      <Filter>Src\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="script\kmusicscripttsble.cpp">
+      <Filter>Src\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="script\kschemescripttable.cpp">
+      <Filter>Src\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="script\kscriptloader.cpp">
+      <Filter>Src\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="script\kscriptmgr.cpp">
+      <Filter>Src\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="script\ksystemscripttable.cpp">
+      <Filter>Src\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="script\kwndclassscripttable.cpp">
+      <Filter>Src\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="case\uiconfig.cpp">
+      <Filter>Src\Case</Filter>
+    </ClCompile>
+    <ClCompile Include="common\kbintab.cpp">
+      <Filter>Src\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\KG_Calculate.cpp">
+      <Filter>Src\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\KG_I18N.cpp">
+      <Filter>Src\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\KG_TabFile.cpp">
+      <Filter>Src\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\ksmallobjectpool.cpp">
+      <Filter>Src\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\tblock.cpp">
+      <Filter>Src\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\tfixedindexrefcountarray.cpp">
+      <Filter>Src\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="config\kdebugconfig.cpp">
+      <Filter>Src\Config</Filter>
+    </ClCompile>
+    <ClCompile Include="driver\kconststringmgr.cpp">
+      <Filter>Src\Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="driver\UIEditorMgr.cpp">
+      <Filter>Src\Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="driver\kconfig.cpp">
+      <Filter>Src\Driver\File</Filter>
+    </ClCompile>
+    <ClCompile Include="driver\kfilepathmgr.cpp">
+      <Filter>Src\Driver\File</Filter>
+    </ClCompile>
+    <ClCompile Include="driver\kanimateimage.cpp">
+      <Filter>Src\Driver\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="driver\kanimateimagemgr.cpp">
+      <Filter>Src\Driver\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="driver\kareatest.cpp">
+      <Filter>Src\Driver\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="driver\kcolor.cpp">
+      <Filter>Src\Driver\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="driver\kimagealpha.cpp">
+      <Filter>Src\Driver\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="driver\kimageframe.cpp">
+      <Filter>Src\Driver\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="driver\kimageframegroup.cpp">
+      <Filter>Src\Driver\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="driver\kimageinfo.cpp">
+      <Filter>Src\Driver\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="driver\kimageinfomgr.cpp">
+      <Filter>Src\Driver\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="driver\kstexfileinfo.cpp">
+      <Filter>Src\Driver\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="driver\khotkeymgr.cpp">
+      <Filter>Src\Driver\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="driver\kinput.cpp">
+      <Filter>Src\Driver\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="driver\kpointer.cpp">
+      <Filter>Src\Driver\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="driver\kmusicmgr.cpp">
+      <Filter>Src\Driver\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\buildagent\IniWndBuilder.cpp">
+      <Filter>Src\Elem\BuildAgent</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\buildagent\LuaWndBuilder.cpp">
+      <Filter>Src\Elem\BuildAgent</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\Components\decoder.cpp">
+      <Filter>Src\Elem\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\Components\item.cpp">
+      <Filter>Src\Elem\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\Components\itemanimate.cpp">
+      <Filter>Src\Elem\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\Components\itembox.cpp">
+      <Filter>Src\Elem\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\Components\itemeditmodemgr.cpp">
+      <Filter>Src\Elem\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\Components\itemeventmgr.cpp">
+      <Filter>Src\Elem\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\Components\itemhandle.cpp">
+      <Filter>Src\Elem\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\Components\itemimage.cpp">
+      <Filter>Src\Elem\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\Components\itemscene.cpp">
+      <Filter>Src\Elem\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\Components\itemshadow.cpp">
+      <Filter>Src\Elem\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\Components\itemtext.cpp">
+      <Filter>Src\Elem\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\Components\itemtreeleaf.cpp">
+      <Filter>Src\Elem\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\Components\pickdropboxmgr.cpp">
+      <Filter>Src\Elem\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\autolocatewnd.cpp">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\tipcenter.cpp">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\wndbutton.cpp">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\wndcheckbox.cpp">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\wndedit.cpp">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\wndframe.cpp">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\wndminimap.cpp">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\wndmovie.cpp">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\wndnewscrollbar.cpp">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\wndpageset.cpp">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\wndscene.cpp">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\wndstation.cpp">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\wndtexture.cpp">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\wndwebpage.cpp">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="elem\wndwindow.cpp">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="scheme\kaddonmgr.cpp">
+      <Filter>Src\Scheme</Filter>
+    </ClCompile>
+    <ClCompile Include="scheme\kcolorschememgr.cpp">
+      <Filter>Src\Scheme</Filter>
+    </ClCompile>
+    <ClCompile Include="scheme\kfontschememgr.cpp">
+      <Filter>Src\Scheme</Filter>
+    </ClCompile>
+    <ClCompile Include="scheme\kglobalstringvaluablemrg.cpp">
+      <Filter>Src\Scheme</Filter>
+    </ClCompile>
+    <ClCompile Include="text\ktext.cpp">
+      <Filter>Src\Text</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="KGUI.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="script\kbasescripttable.h">
+      <Filter>Src\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="script\kconstmgr.h">
+      <Filter>Src\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="script\kfileclassscripttable.h">
+      <Filter>Src\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="script\khotkeyclassscripttable.h">
+      <Filter>Src\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="script\kitemhandleclassscripttable.h">
+      <Filter>Src\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="script\kmusicscripttsble.h">
+      <Filter>Src\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="script\kschemescripttable.h">
+      <Filter>Src\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="script\kscriptloader.h">
+      <Filter>Src\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="script\kscriptmgr.h">
+      <Filter>Src\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="script\ksystemscripttable.h">
+      <Filter>Src\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="script\kwndclassscripttable.h">
+      <Filter>Src\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="case\uiconfig.h">
+      <Filter>Src\Case</Filter>
+    </ClInclude>
+    <ClInclude Include="common\IKG_TabFile.h">
+      <Filter>Src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\kbintab.h">
+      <Filter>Src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\KG_Calculate.h">
+      <Filter>Src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\KG_I18N.h">
+      <Filter>Src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\KG_TabFile.h">
+      <Filter>Src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\ksmallobjectpool.h">
+      <Filter>Src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\tblock.h">
+      <Filter>Src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\tfixedindexrefcountarray.h">
+      <Filter>Src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="config\kdebugconfig.h">
+      <Filter>Src\Config</Filter>
+    </ClInclude>
+    <ClInclude Include="driver\kconststringmgr.h">
+      <Filter>Src\Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="driver\UIEditorMgr.h">
+      <Filter>Src\Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="driver\kconfig.h">
+      <Filter>Src\Driver\File</Filter>
+    </ClInclude>
+    <ClInclude Include="driver\kfilepathmgr.h">
+      <Filter>Src\Driver\File</Filter>
+    </ClInclude>
+    <ClInclude Include="driver\kanimateimage.h">
+      <Filter>Src\Driver\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="driver\kanimateimagemgr.h">
+      <Filter>Src\Driver\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="driver\kareatest.h">
+      <Filter>Src\Driver\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="driver\kcolor.h">
+      <Filter>Src\Driver\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="driver\kimagealpha.h">
+      <Filter>Src\Driver\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="driver\kimageframe.h">
+      <Filter>Src\Driver\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="driver\kimageframegroup.h">
+      <Filter>Src\Driver\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="driver\kimageinfo.h">
+      <Filter>Src\Driver\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="driver\kimageinfomgr.h">
+      <Filter>Src\Driver\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="driver\kstexfileinfo.h">
+      <Filter>Src\Driver\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="driver\khotkeymgr.h">
+      <Filter>Src\Driver\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="driver\kinput.h">
+      <Filter>Src\Driver\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="driver\kpointer.h">
+      <Filter>Src\Driver\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="driver\kmusicmgr.h">
+      <Filter>Src\Driver\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\buildagent\IniWndBuilder.h">
+      <Filter>Src\Elem\BuildAgent</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\buildagent\LuaWndBuilder.h">
+      <Filter>Src\Elem\BuildAgent</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\Components\decoder.h">
+      <Filter>Src\Elem\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\Components\item.h">
+      <Filter>Src\Elem\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\Components\itemanimate.h">
+      <Filter>Src\Elem\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\Components\itembox.h">
+      <Filter>Src\Elem\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\Components\itemeditmodemgr.h">
+      <Filter>Src\Elem\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\Components\itemeventmgr.h">
+      <Filter>Src\Elem\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\Components\itemhandle.h">
+      <Filter>Src\Elem\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\Components\itemimage.h">
+      <Filter>Src\Elem\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\Components\itemscene.h">
+      <Filter>Src\Elem\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\Components\itemshadow.h">
+      <Filter>Src\Elem\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\Components\itemtext.h">
+      <Filter>Src\Elem\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\Components\itemtreeleaf.h">
+      <Filter>Src\Elem\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\Components\pickdropboxmgr.h">
+      <Filter>Src\Elem\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\autolocatewnd.h">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\tipcenter.h">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\uiobject.h">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\wndbutton.h">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\wndcheckbox.h">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\wndedit.h">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\wndframe.h">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\wndmessage.h">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\wndminimap.h">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\wndmovie.h">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\wndnewscrollbar.h">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\wndpageset.h">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\wndscene.h">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\wndstation.h">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\wndtexture.h">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\wndwebpage.h">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="elem\wndwindow.h">
+      <Filter>Src\Elem\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="scheme\kaddonmgr.h">
+      <Filter>Src\Scheme</Filter>
+    </ClInclude>
+    <ClInclude Include="scheme\kcolorschememgr.h">
+      <Filter>Src\Scheme</Filter>
+    </ClInclude>
+    <ClInclude Include="scheme\kfontschememgr.h">
+      <Filter>Src\Scheme</Filter>
+    </ClInclude>
+    <ClInclude Include="scheme\kglobalstringvaluablemrg.h">
+      <Filter>Src\Scheme</Filter>
+    </ClInclude>
+    <ClInclude Include="text\ktext.h">
+      <Filter>Src\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Include\SO3UI\IKGUI.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Include\SO3UI\ipluginshell.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Include\SO3UI\KJX3UIDefine.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="KGUI.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

@@ -4,7 +4,7 @@
 *.cpp text eol=crlf diff
 *.sln text eol=crlf diff
 *.cs text eol=crlf diff
-*.txt binary diff diff
+*.txt binary diff
 *.vcproj text eol=crlf diff
 .gitignore text diff
 .gitattributes text diff
