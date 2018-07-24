@@ -26,6 +26,7 @@ public:
 protected:
 	HRESULT Get1NewResourcePointer(KG3DMesh** ppT,DWORD Type,DWORD_PTR Option);
 
+public:
 	// Inherited via TKG3DResourceManagerBase
 	virtual HRESULT LoadResourceFromFile(const char cszFileName[], unsigned uFileNameHash, unsigned uOption, IKG3DResourceBase ** ppRetResource, bool bSyncLoad = true, ResNodeState ** res_node_state = NULL) override;
 	virtual HRESULT LoadAnimationFromFile(const char cszFileName[], void ** ppRet) override;

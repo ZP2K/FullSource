@@ -32,6 +32,50 @@ KG3DRepresentObjectTable::~KG3DRepresentObjectTable(void)
 {
 }
 
+HRESULT KG3DRepresentObjectTable::LoadResourceFromFile(const char cszFileName[], unsigned uFileNameHash, unsigned uOption, IKG3DResourceBase ** ppRetResource, bool bSyncLoad, ResNodeState ** res_node_state)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DRepresentObjectTable::LoadAnimationFromFile(const char cszFileName[], void ** ppRet)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DRepresentObjectTable::UnloadAnimation(void * pResource)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DRepresentObjectTable::LoadTagAnimationFromFile(const char cszFileName[], void ** ppRet)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DRepresentObjectTable::UnloadTagAnimation(void * pResource)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DRepresentObjectTable::LoadResourceFromFile(const char cszFileName[], unsigned uFileNameHash, unsigned uOption, HANDLE * pRetHandle)
+{
+	return E_NOTIMPL;
+}
+
+MODEL_LOAD_STATE KG3DRepresentObjectTable::GetResourceLoadState(HANDLE hResourceHandle)
+{
+	return MODEL_LOAD_STATE();
+}
+
+HRESULT KG3DRepresentObjectTable::GetResourceByHandle(HANDLE hResourceHandle, IKG3DResourceBase ** ppRetResource)
+{
+	return E_NOTIMPL;
+}
+
+void KG3DRepresentObjectTable::CloseResourceHandle(HANDLE hResourceHandle)
+{
+}
+
 HRESULT KG3DRepresentObjectTable::Get1NewResourcePointer(KG3DRepresentObject** ppT,
 	DWORD dwType,
 	DWORD_PTR )

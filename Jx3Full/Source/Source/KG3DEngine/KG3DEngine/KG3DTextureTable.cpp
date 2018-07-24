@@ -324,7 +324,7 @@ Exit0:
 	return hRetCode;
 }
 
-HRESULT KG3DTextureTable::LoadResourceFromFile(const char cszFileName[], unsigned uFileNameHash, unsigned uOption, IKG3DResourceBase ** ppRetResource, bool bSyncLoad = true, ResNodeState ** res_node_state = NULL)
+HRESULT KG3DTextureTable::LoadResourceFromFile(const char cszFileName[], unsigned uFileNameHash, unsigned uOption, IKG3DResourceBase ** ppRetResource, bool bSyncLoad, ResNodeState ** res_node_state)
 {
 	return E_NOTIMPL;
 }
@@ -1256,7 +1256,7 @@ HRESULT  KG3DVideoMemTextureTable::FreeResource(KG3DTexture* pUser,KG3DVideoMemT
 {
 	HRESULT hr = E_FAIL;
 
-	KG3DVideoMemTexture* pOut = NULL;
+	//KG3DVideoMemTexture* pOut = NULL;
 	VIDEOMEMPOOL* pPool = NULL;
 	map<KG3DTEXTURE_DESC,VIDEOMEMPOOL*>::iterator iFind;
 

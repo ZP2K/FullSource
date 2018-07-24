@@ -152,7 +152,7 @@ LPCSTR KG3DSFXAnimationController::GetAnimationFileName()
     return NULL;
 }
 
-DWORD KG3DSFXAnimationController::GetMotionExtraInfo()
+DWORD64 KG3DSFXAnimationController::GetMotionExtraInfo()
 {
 	return m_dwExtraMotionTypeInfo;
 }
@@ -322,7 +322,7 @@ void KG3DSFXSuedeAnimationController::RemoveAnimationControllerUpdateNotifier(IK
 
 
 
-DWORD KG3DSFXSuedeAnimationController::GetMotionExtraInfo()
+DWORD64 KG3DSFXSuedeAnimationController::GetMotionExtraInfo()
 {
 	return m_dwExtraMotionTypeInfo;
 }

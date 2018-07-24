@@ -428,10 +428,11 @@ HRESULT KG3DSceneSelectionToolSolid::SetSelected( SCENEENTITYTYPE eEntityType, P
 HRESULT KG3DSceneSelectionToolSolid::TraverseSelected( KG3DSceneEntityVisitor& Visitor )
 {
 	HRESULT hr = S_OK;
-	for (std::set<KG3DSceneEntity>::iterator it = m_SelectedEntities.begin(); it != m_SelectedEntities.end()
-		;++it)
+	for (std::set<KG3DSceneEntity>::iterator it = m_SelectedEntities.begin(); it != m_SelectedEntities.end(); ++it)
 	{
-		hr = Visitor.Accept(*it);
+		auto p = *it;
+		_ASSERTE(NULL != &p);
+		hr = Visitor.Accept(p);
 		KG_COM_PROCESS_ERROR(hr);
 	}
 Exit0:
@@ -448,9 +449,9 @@ HRESULT KG3DSceneSelectionToolSolid::TraverseSelected( KG3DRepresentObjectVisito
 	HRESULT hr = E_FAIL;
 	for (TypeObjCt::iterator it = m_selectedObjCt.begin(); it != m_selectedObjCt.end(); ++it)
 	{
-		KG3DRepresentObject* p = *it;
-		_ASSERTE(NULL != p);
-		hr = visitor.Accept(*p);
+		//KG3DRepresentObject* p = *it;
+		//_ASSERTE(NULL != p);
+		hr = visitor.Accept(const_cast<KG3DRepresentObject&>(**it));
 		KG_COM_PROCESS_ERROR(hr);
 	}
 Exit0:
@@ -460,10 +461,11 @@ Exit0:
 HRESULT KG3DSceneSelectionToolSolid::TraverseSelectable( KG3DSceneEntityVisitor& Visitor )
 {
 	HRESULT hr = S_OK;
-	for (std::set<KG3DSceneEntity>::iterator it = m_SelectableEntities.begin(); it != m_SelectableEntities.end()
-		;++it)
+	for (std::set<KG3DSceneEntity>::iterator it = m_SelectableEntities.begin(); it != m_SelectableEntities.end() ;++it)
 	{
-		hr = Visitor.Accept(*it);
+		auto p = *it;
+		_ASSERTE(NULL != &p);
+		hr = Visitor.Accept(p);
 		KG_COM_PROCESS_ERROR(hr);
 	}
 Exit0:

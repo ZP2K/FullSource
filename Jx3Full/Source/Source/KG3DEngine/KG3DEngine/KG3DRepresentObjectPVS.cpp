@@ -1058,12 +1058,12 @@ HRESULT KG3DRepresentObjectPVS::UnInit()
 
     DeleteAllPortal();
 
-    for (set<KG3DRepresentObject*>::iterator i = m_setObjectInside.begin(); i != m_setObjectInside.end(); ++i)
+    for (std::set<KG3DRepresentObject*>::iterator i = m_setObjectInside.begin(); i != m_setObjectInside.end(); ++i)
     {
         KG3DRepresentObject *pObject = *i;
         if (pObject)
             pObject->SetParentMatrix(NULL);
-        SAFE_RELEASE(*i);
+        SAFE_RELEASE(**i);
     }
     m_setObjectVisiable.clear();           
     m_setObjectInside.clear();
