@@ -2133,7 +2133,7 @@ HRESULT KG3DRenderData::_ProcessMeshTypeModelst(KG3DModel* pModel,KG3DSceneEntit
 				std::set<KG3DModelLod>::iterator iend = pSubModelCur->m_ChildModels.end();
 				while(i!=iend)
 				{
-					KG3DModelLod& lod = *i;
+					auto& lod = *i;
 
 					if (lod.pModelCurrent->CheckNeedRender())
 					{
@@ -2833,7 +2833,7 @@ HRESULT KG3DRenderData::SortMaterialForOneModel(KG3DModel* pModel,KG3DSceneEntit
 		std::set<KG3DModelLod>::iterator iend = pModelWithChild->m_ChildModels.end();
 		while(i!=iend)
 		{
-			KG3DModelLod& lod = *i;
+			auto& lod = *i;
 
 			if (lod.pModelCurrent->CheckNeedRender())
 			{

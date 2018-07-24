@@ -27,7 +27,7 @@
 #include "KG3DRegionInfoManager.h"
 #include "MathToolEx.h"
 #include "MathTool.h"
-#include "..\ViMD3DLib\include\ViMD3DLib.h"				//ViM
+#include "../ViMD3DLib/include/ViMD3DLib.h"				//ViM
 #include "KG3DRepresentObjectSoundBall.h"
 #include "KG3DSceneSettings.h"
 #include "KG3DSceneCameraMovement.h"
@@ -72,7 +72,7 @@
 #include "KG3DRepresentObjectWall.h"
 #include "KG3DWaterEffect.h"
 #include "KG3DTerrainBlock.h"
-#include "..\..\..\Include\IKG3DSoundShell.h"
+#include "../../../Include/IKG3DSoundShell.h"
 #include "KG3DRenderGlobalState.h"
 #include "KG3DModelShadowRenderer.h"
 #include "kg3dcaption.h"
@@ -8310,7 +8310,7 @@ HRESULT  KG3DSceneSceneEditor::LoadTerrainBlock(const char cszFileName[])
 	vec2ScreenPos.x = (rect.left + rect.right) / 2.0F;
 	vec2ScreenPos.y = (rect.bottom + rect.top) / 2.0F; 
 	D3DXVECTOR3 vec3CenterPos;
-	GetSelectPosition(vec2ScreenPos,vec3CenterPos);
+	GetSelectPosition(vec2ScreenPos, vec3CenterPos);
 	vec3CenterPos.y += 500;
 	m_pTerrainBlock->SetTranslation(&vec3CenterPos);
 	m_pTerrainBlock->SetRotation(&D3DXQUATERNION(0,0,0,1));

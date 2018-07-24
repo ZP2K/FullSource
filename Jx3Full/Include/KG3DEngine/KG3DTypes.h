@@ -1043,6 +1043,7 @@ enum
 	REPRESENTOBJECT_SIGNPOINT           = 34,//通用的标记点，如KEYPOINT,TRAFFICPOINT,WAYPOINT等等
 	REPRESENTOBJECT_SOUNDPOLYGON        = 35,//多边形音效
 	REPRESENTOBJECT_SOUNDREVERB         = 36,//音效混响区域
+	REPRESENTOBJECT_TERRAINBLOCK		= 37,
 	REPRESENTOBJECT_TYPE_COUNT,			//添加新的ObjType的时候，请比这个值小，如果值不够用了，可以增大这个值(理论上这个值是由编译器自动递增的)，但不要太大，因为需要空间的，反正要所有的ObjType都比这个值小，这样Table中就可以利用Begin End做线性查找了
 	REPRESENTOBJECT_NONE = 0x0FFFFFFF,
 	REPRESENTOBJECT_FORCEDWORD = 0xFFFFFFFF,
