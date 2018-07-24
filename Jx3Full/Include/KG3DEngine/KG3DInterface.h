@@ -1784,6 +1784,10 @@ IKG3DCharacterTable *g_GetCharacterTable();
 DLLKG3DENGINE_API HRESULT Get3DEngineInterface(void** pEngineManager);
 DLLKG3DENGINE_API HRESULT Get3DEngineXLogicInterface(void** ppEngineXLogic); //IKG3DEngineXRepresentLogic
 
-typedef struct _KG3DREGION_INFORMER_LOADFILE_PARAM KG3DREGION_INFORMER_LOADFILE_PARAM;
+typedef struct _KG3DREGION_INFORMER_LOADFILE_PARAM 
+{
+	INT nRegionXCount, nRegionZCount;
+	LPSTR strError;
+} KG3DREGION_INFORMER_LOADFILE_PARAM;
 
 #endif  //.height _KG3DINTERFACE_H_

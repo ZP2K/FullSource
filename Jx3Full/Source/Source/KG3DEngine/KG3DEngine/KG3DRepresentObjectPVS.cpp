@@ -1063,7 +1063,7 @@ HRESULT KG3DRepresentObjectPVS::UnInit()
         KG3DRepresentObject *pObject = *i;
         if (pObject)
             pObject->SetParentMatrix(NULL);
-        SAFE_RELEASE(**i);
+        SAFE_RELEASE(pObject);
     }
     m_setObjectVisiable.clear();           
     m_setObjectInside.clear();
@@ -1086,7 +1086,7 @@ HRESULT KG3DRepresentObjectPVS::UnInit()
 	{
 		KG3DModel* pModel = *i;
 		pModel->LeavePvs(FALSE);
-        SAFE_RELEASE(*i);
+        SAFE_RELEASE(pModel);
 	}
     m_setModelInside.clear();
 
@@ -1137,7 +1137,8 @@ HRESULT KG3DRepresentObjectPVS::Clear(BOOL bClearEntity)
 	set<KG3DModel*>setModelInsideCopy = m_setModelInside;
     for (set<KG3DModel*>::iterator i = setModelInsideCopy.begin(); i != setModelInsideCopy.end(); ++i)
 	{
-        SAFE_RELEASE(*i);
+		KG3DModel *p = *i;
+        SAFE_RELEASE(p);
 		//(*i)->LeavePvs();
 	}
     m_setModelInside.clear();
@@ -1156,8 +1157,8 @@ namespace {
         
         bool operator()(KG3DPvsPortal* left, KG3DPvsPortal* rigt)
         {
-            D3DXVECTOR3 left_pos = *(D3DXVECTOR3*)&(left->GetWorldMatrix()._41);
-            D3DXVECTOR3 rigt_pos = *(D3DXVECTOR3*)&(rigt->GetWorldMatrix()._41);
+            D3DXVECTOR3 left_pos =*(D3DXVECTOR3)(left->GetWorldMatrix()._41);
+            D3DXVECTOR3 rigt_pos = (D3DXVECTOR3)(rigt->GetWorldMatrix()._41);
             return D3DXVec3LengthSq(&(left_pos - vCamPos)) > D3DXVec3LengthSq(&(rigt_pos - vCamPos));
         }
 
