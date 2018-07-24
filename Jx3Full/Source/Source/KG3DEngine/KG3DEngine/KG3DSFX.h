@@ -723,10 +723,6 @@ private :
 public :
     vector<_BindInfo>  m_vecBindInfo;
 
-
-	// Inherited via KG3DModel
-	virtual void SetRotationCenter(const D3DXVECTOR3 * pValue) override;
-
 };
 
 #endif //_INCLUDE_KG3DSFX_H_

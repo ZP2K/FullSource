@@ -3859,9 +3859,9 @@ bool Modelsort(KG3DModel* pA, KG3DModel* pB)
 
 HRESULT KG3DRenderData::RenderSpecialAlphaModel()
 {
-    HRESULT hrResult = E_FAIL;
-
     return S_OK; //先关闭SpecialAlpha, 解决外网蓝屏
+
+//    HRESULT hrResult = E_FAIL;
 
 //    D3DXMATRIX matView;
 //    g_pd3dDevice->GetTransform(D3DTS_VIEW, &matView);

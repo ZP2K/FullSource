@@ -460,7 +460,9 @@ public:
 
 	// detail data
 	virtual void SetDetailColor(int index1, int index2, int index3) = 0;
-	virtual void SetRotationCenter(const D3DXVECTOR3* pValue) = 0;
+	virtual void SetRotationCenter(D3DXVECTOR3* pValue) = 0;
+	virtual void SetScalingCenter(D3DXVECTOR3* pValue) = 0;
+	virtual void SetScalingRotation(D3DXQUATERNION* pValue) = 0;
 };
 
 
@@ -1783,5 +1785,7 @@ DLLKG3DENGINE_API HRESULT Get3DEngineInterface(void** pEngineManager);
 DLLKG3DENGINE_API HRESULT Get3DEngineXLogicInterface(void** ppEngineXLogic); //IKG3DEngineXRepresentLogic
 
 typedef struct _KG3DREGION_INFORMER_LOADFILE_PARAM KG3DREGION_INFORMER_LOADFILE_PARAM;
+
+struct KG3DUIImageRect;
 
 #endif  // _KG3DINTERFACE_H_

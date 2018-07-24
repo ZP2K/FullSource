@@ -1091,8 +1091,6 @@ protected:
 	virtual HRESULT SetOBJPropertyByType(enuModelType eModelType) override;
 	virtual void SetDetailColor(int index1, int index2, int index3) override;
 
-	// Inherited via CKG3DConnectionPoint
-	virtual void SetRotationCenter(const D3DXVECTOR3 * pValue) override;
 };
 
 #ifdef KG3DENGINE_DISABLE_MULTITHREAD
