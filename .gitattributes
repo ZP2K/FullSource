@@ -6,5 +6,6 @@
 *.cs text eol=crlf diff
 *.txt binary diff
 *.vcproj text eol=crlf diff
+*.vcxproj text eol=crlf diff
 .gitignore text diff
 .gitattributes text diff
