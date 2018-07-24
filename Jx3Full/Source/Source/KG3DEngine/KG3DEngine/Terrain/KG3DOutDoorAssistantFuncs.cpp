@@ -498,5 +498,5 @@ ULONG KG3D_OUTDOOR::GetObjectCount( KG3DSceneOutDoorSpaceMgr& outDoorMgr, DWORD 
 
 		return static_cast<ULONG>(counterTemp.m_uCount);
 	}
-	return 0;	
+	//return 0;	
 }

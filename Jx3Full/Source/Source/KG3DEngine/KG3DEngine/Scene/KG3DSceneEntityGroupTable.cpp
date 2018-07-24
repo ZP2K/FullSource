@@ -17,7 +17,7 @@ KG3DSceneEntityGroupTable::~KG3DSceneEntityGroupTable(void)
 {
 }
 
-HRESULT KG3DSceneEntityGroupTable::LoadResourceFromFile(const char cszFileName[], unsigned uFileNameHash, unsigned uOption, IKG3DResourceBase ** ppRetResource, bool bSyncLoad = true, ResNodeState ** res_node_state = NULL)
+HRESULT KG3DSceneEntityGroupTable::LoadResourceFromFile(const char cszFileName[], unsigned uFileNameHash, unsigned uOption, IKG3DResourceBase ** ppRetResource, bool bSyncLoad, ResNodeState ** res_node_state)
 {
 	return E_NOTIMPL;
 }

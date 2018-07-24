@@ -1873,7 +1873,7 @@ HRESULT KG3DScene::GetSelectModelList(const D3DXVECTOR3 & vRayOrig, const D3DXVE
 	return E_NOTIMPL;
 }
 
-HRESULT KG3DScene::GetSelectPosition(D3DXVECTOR2 const & vScale, D3DXVECTOR3 & vPosition, BOOL bNotIntersectTerrain = FALSE, BOOL bNotIntersectTObject = FALSE)
+HRESULT KG3DScene::GetSelectPosition(D3DXVECTOR2 const & vScale, D3DXVECTOR3 & vPosition, BOOL bNotIntersectTerrain, BOOL bNotIntersectTObject)
 {
 	return E_NOTIMPL;
 }

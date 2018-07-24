@@ -280,7 +280,7 @@ VOID KG3DSceneEditorBase::TDDCheckAfterInitialized(LPVOID pExtraData)
 				pSenderForTest->PostMessage(KG3DMessage(KM_EXECUTE_ACTION, reinterpret_cast<DWORD_PTR>(&execStruct), 0));
 
 				//确认点击会触发选择完成的消息
-				BOOL bReceived = tempLst.HasSuchEvent(KM_SELECT, EM_EVENT_STATE_END);
+				//BOOL bReceived = tempLst.HasSuchEvent(KM_SELECT, EM_EVENT_STATE_END);
 				//_ASSERTE(bReceived);
 
 				pSelTool->TestEnd();

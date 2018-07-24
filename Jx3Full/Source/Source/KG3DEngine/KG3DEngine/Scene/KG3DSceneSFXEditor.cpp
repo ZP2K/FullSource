@@ -4373,7 +4373,7 @@ HRESULT KG3DSceneSFXEditor::Init()
 Exit0:
     return hr;
 
-    return S_OK;
+    //return S_OK;
 }
 
 HRESULT KG3DSceneSFXEditor::LoadMaterial(LPSTR pszMtlFile)

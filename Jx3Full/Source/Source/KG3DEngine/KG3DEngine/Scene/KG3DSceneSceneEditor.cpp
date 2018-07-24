@@ -2950,7 +2950,7 @@ HRESULT KG3DSceneSceneEditor::SaveMapSetting(LPSTR pFileName)
 
 	return S_OK;
 	//Exit0:
-	return E_FAIL;
+	//return E_FAIL;
 }
 
 HRESULT KG3DSceneSceneEditor::LoadMapSetting(LPSTR pFileName)
@@ -6152,7 +6152,7 @@ HRESULT KG3DSceneSceneEditor::AddRenderEntity( KG3DSceneEntity Entity, BOOL bIsS
 
 	return S_OK;
 //Exit0:
-	return E_FAIL;
+	//return E_FAIL;
 }
 
 HRESULT KG3DSceneSceneEditor::AddRenderEntity( SCENEENTITYTYPE eEntityType, PVOID pvEntityPointer )
@@ -12781,7 +12781,7 @@ HRESULT KG3DSceneSceneEditor::AddWallNodeToScene(IEKG3DWall* pWall,int nWall,int
 Exit0:
 	SAFE_RELEASE(pObjectNode);
 	return E_FAIL;
-	return S_OK;
+	// return S_OK;
 }
 HRESULT KG3DSceneSceneEditor::GetLODProperties( FLOAT* pfLODHightToMiddleSwitchAngleGate, FLOAT* pfLODMiddleToLowSwitchAngleGate )
 {
@@ -13189,7 +13189,7 @@ HRESULT KG3DSceneSceneEditor::SetObjectSelectMaskDesign(DWORD mask)
 {
 	if (mask == -1)
 	{
-		KG3DSceneSelectBase::SetSelectOption(EM_SELMASK_ALL, -1);
+		KG3DSceneSelectBase::SetSelectOption(EM_SELMASK_ALL, static_cast<DWORD>(-1));
 	}
 	else
 	{
@@ -13321,7 +13321,7 @@ HRESULT KG3DSceneSceneEditor::GetSceneRect(LONG* width, LONG* height)
 
 void KG3DSceneSceneEditor::SetSelectOption(DWORD dwOption)
 {
-	KG3DSceneSelectBase::SetSelectOption(dwOption, -1);
+	KG3DSceneSelectBase::SetSelectOption(dwOption, static_cast<DWORD>(-1));
 }
 DWORD KG3DSceneSceneEditor::GetSelectOption()
 {
