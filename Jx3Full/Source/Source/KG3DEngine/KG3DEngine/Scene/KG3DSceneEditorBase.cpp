@@ -193,7 +193,7 @@ VOID	KG3DSceneEditorBase::TDDCheck(LPVOID pExtraData)
 #define  ILLEGAL_PTR2 ((LPVOID)0x00000004)
 VOID KG3DSceneEditorBase::TDDCheckAfterInitialized(LPVOID pExtraData)
 {
-	return;
+	//return;
 #if defined(DEBUG) | defined(_DEBUG)
 
 	KG3DSceneEditorBase* pSceneEditorBase = reinterpret_cast<KG3DSceneEditorBase*>(pExtraData);

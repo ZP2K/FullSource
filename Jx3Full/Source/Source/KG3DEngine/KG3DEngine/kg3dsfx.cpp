@@ -7197,7 +7197,7 @@ KG3DSFXSuede::~KG3DSFXSuede()
    UnInit();
 }
 
-void KG3DSFXSuede::SetRotationCenter(const D3DXVECTOR3 & pValue)
+void KG3DSFXSuede::SetRotationCenter(const D3DXVECTOR3 * pValue)
 {
 }
 

@@ -3863,21 +3863,21 @@ HRESULT KG3DRenderData::RenderSpecialAlphaModel()
 
     return S_OK; //先关闭SpecialAlpha, 解决外网蓝屏
 
-    D3DXMATRIX matView;
-    g_pd3dDevice->GetTransform(D3DTS_VIEW, &matView);
-    D3DXMatrixInverse(&matView, NULL, &matView);
-    s_vec3ViewPoint = D3DXVECTOR3(matView._41, matView._42, matView._43);
-
-    sort(m_vecSpecialAlphaModel.begin(), m_vecSpecialAlphaModel.end(), Modelsort);
-
-    for (size_t i = 0; i < m_vecSpecialAlphaModel.size(); i++)
-    {
-        m_vecSpecialAlphaModel[i]->RenderSpecialAlpha(0, NULL);
-    }
-
-    hrResult = S_OK;
-//Exit0:
-    return hrResult;
+//    D3DXMATRIX matView;
+//    g_pd3dDevice->GetTransform(D3DTS_VIEW, &matView);
+//    D3DXMatrixInverse(&matView, NULL, &matView);
+//    s_vec3ViewPoint = D3DXVECTOR3(matView._41, matView._42, matView._43);
+//
+//    sort(m_vecSpecialAlphaModel.begin(), m_vecSpecialAlphaModel.end(), Modelsort);
+//
+//    for (size_t i = 0; i < m_vecSpecialAlphaModel.size(); i++)
+//    {
+//        m_vecSpecialAlphaModel[i]->RenderSpecialAlpha(0, NULL);
+//    }
+//
+//    hrResult = S_OK;
+////Exit0:
+//    return hrResult;
 }
 
 HRESULT KG3DSceneEntityMgr::RenderSpecialAlphaModel()
