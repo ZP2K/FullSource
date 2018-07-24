@@ -1786,11 +1786,4 @@ DLLKG3DENGINE_API HRESULT Get3DEngineXLogicInterface(void** ppEngineXLogic); //I
 
 typedef struct _KG3DREGION_INFORMER_LOADFILE_PARAM KG3DREGION_INFORMER_LOADFILE_PARAM;
 
-struct KG3DUIImageRect
-{
-	float left;
-	float top;
-	float width;
-	float height;
-};
 #endif  //.height _KG3DINTERFACE_H_

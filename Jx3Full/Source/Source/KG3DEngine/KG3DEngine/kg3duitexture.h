@@ -22,6 +22,14 @@ struct KG3DUIImageInfo
 	UINT uHeight;
 };
 
+struct KG3DUIImageRect
+{
+	float left;
+	float top;
+	float width;
+	float height;
+};
+
 inline bool operator==(SIZE const& lhs, SIZE const& rhs)
 {
 	return lhs.cx == rhs.cx && lhs.cy == rhs.cy;

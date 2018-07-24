@@ -3773,6 +3773,184 @@ void KG3DUI::ChangeDrawState(KDrawState DrawState)
 	m_DrawState = DrawState;
 }
 
+HRESULT KG3DUI::GetTextureRenderData(DWORD_PTR dwTextureID, UINT uWidth, UINT uHeight, BYTE * pData, size_t uLength, BOOL bUpToDown)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DUI::CreateTexture(UINT uWidth, UINT uHeight, DWORD_PTR * pdwTextureID)
+{
+	return E_NOTIMPL;
+}
+
+void KG3DUI::ReleaseTexture(DWORD_PTR dwTextureID)
+{
+}
+
+IKG3DFontTexture * KG3DUI::GetFont(DWORD dwFontID)
+{
+	return nullptr;
+}
+
+HRESULT KG3DUI::GetTextRange(DWORD dwFontID, LPCWSTR wszText, int nTextLen, LPCWSTR wszEnd, FLOAT fCursorPos, FLOAT fSpace, FLOAT fScale, LPINT lpCharPos, FLOAT & fWidth, FLOAT & fHeight, int nBorder = 0) const
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DUI::ReloadTexture(LPCTSTR szFilePath, DWORD dwImageID, int bGray)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DUI::LoadImageA(LPCTSTR szFilePath, LPDWORD pdwImageID, int bGray = 0)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DUI::GrayImage(DWORD dwImageID, RECT const & DstRect, LPDWORD pdwNewImageID)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DUI::FillImage(DWORD dwDstImageID, LPCTSTR szImageFile, RECT const & SrcRect, RECT const & DstRect, int bGray)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DUI::FillTextGlyph(DWORD dwFontID, const wchar_t * pwszText, int nLen = -1, int nBorder = 0)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DUI::LoadFont(DWORD dwFontID, LPCSTR szFilePath, long nFaceIndex, float fPixel, DWORD dwStyle, int bAlonemgr = false)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DUI::CreateScene(IKG3DScene ** pp3DScene, const char * cszEnvFileName = NULL)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DUI::ScreenShot(const char szFilePath[], D3DXIMAGE_FILEFORMAT eType, int nQuality, RECT const & ShotRect)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DUI::ScreenShotEx(const char szFilePath[], D3DXIMAGE_FILEFORMAT eType, DWORD nWidth, DWORD nHeight)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DUI::OverSamplingScreenShot(LPCTSTR tszFilePath, D3DXIMAGE_FILEFORMAT eType, INT nMagnification = 2, BOOL bOuputSourceScreenShot = FALSE)
+{
+	return E_NOTIMPL;
+}
+
+void KG3DUI::DrawScreen3DSfx(IKG3DModel * p3DModel, D3DXVECTOR2 Pos, float fBoxW, float fBoxH, int bClearZ, int bRenderBox)
+{
+}
+
+HRESULT KG3DUI::GetModelBoxSize(IKG3DModel * pModel, float & rfWidth, float & rfHeight)
+{
+	return E_NOTIMPL;
+}
+
+void KG3DUI::ResetDrawState()
+{
+}
+
+HRESULT KG3DUI::BeginRenderToTextureEx(DWORD dwTextureID, UINT uMipmapLevel)
+{
+	return E_NOTIMPL;
+}
+
+void KG3DUI::TransformSceneCoorSys()
+{
+}
+
+void KG3DUI::TransformUICoorSys()
+{
+}
+
+void KG3DUI::RestoreCoorSys()
+{
+}
+
+HRESULT KG3DUI::OnResetViewport(UINT uWidth, UINT uHeight)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DUI::SetCodePage(unsigned int uCodePage)
+{
+	return E_NOTIMPL;
+}
+
+unsigned int KG3DUI::GetCodePage()
+{
+	return 0;
+}
+
+int KG3DUI::LockDiffuseVertexBuff(UINT uVertexCnt, K2DDiffuseVertex ** ppVer, UINT * pnRetStartVertex)
+{
+	return 0;
+}
+
+int KG3DUI::UnLockDiffuseVertexBuff()
+{
+	return 0;
+}
+
+size_t KG3DUI::GetDiffuseVertexNums()
+{
+	return size_t();
+}
+
+HRESULT KG3DUI::DrawPrimitive(D3DPRIMITIVETYPE PrimitiveType, UINT StartVertex, UINT nCount)
+{
+	return E_NOTIMPL;
+}
+
+int KG3DUI::LockTex1VertexBuff(UINT uVertexCnt, K2DTex1Vertex ** ppVer, UINT * pnRetStartVertex)
+{
+	return 0;
+}
+
+int KG3DUI::UnLockTex1VertexBuff()
+{
+	return 0;
+}
+
+size_t KG3DUI::GetTex1VertexNums()
+{
+	return size_t();
+}
+
+HRESULT KG3DUI::DrawPrimitive(D3DPRIMITIVETYPE PrimitiveType, DWORD_PTR dwTextureID, UINT StartVertex, UINT nCount)
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DUI::BeginDrawMultiScene()
+{
+	return E_NOTIMPL;
+}
+
+HRESULT KG3DUI::EndDrawMultiScene()
+{
+	return E_NOTIMPL;
+}
+
+DWORD_PTR KG3DUI::GetImageTexture(DWORD dwImageID, D3DFORMAT * pFormat)
+{
+	return DWORD_PTR();
+}
+
+void KG3DUI::ChangeDrawState(KDrawState DrawState)
+{
+}
+
 #if defined(DEBUG) | defined(_DEBUG)
 LPDIRECT3DDEVICE9 KG3DUI::GetDevice()
 {

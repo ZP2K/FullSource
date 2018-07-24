@@ -11,6 +11,17 @@
 #define ENABLE_VIDEO_MEMORY_INFO
 
 //--------------------------------------------------------------------------------------------------------------------------
+
+struct KG3DUIVertex2;
+struct KG3DUIText2;
+struct KG3DUILine2;
+struct KG3DUIRect2;
+struct KG3DUIImage2;
+struct KG3DUIScene2;
+struct KG3DUIRectPart2;
+struct KG3DUIImagePart2;
+struct KG3DUIImageRotate2;
+
 class KG3DUIRenderStateGuard
 {
 public:
@@ -355,6 +366,45 @@ private:
 	D3DXMATRIX m_mSceneView;
 
     KG3DUIMiniScenePtrList m_MiniScenePtrList;
+
+	// Inherited via IKG3DUI
+	virtual HRESULT GrayImage(DWORD dwImageID, RECT const & DstRect, LPDWORD pdwNewImageID) override;
+	virtual HRESULT FillImage(DWORD dwDstImageID, LPCTSTR szImageFile, RECT const & SrcRect, RECT const & DstRect, int bGray) override;
+	virtual HRESULT FillTextGlyph(DWORD dwFontID, const wchar_t * pwszText, int nLen = -1, int nBorder = 0) override;
+	virtual HRESULT LoadFont(DWORD dwFontID, LPCSTR szFilePath, long nFaceIndex, float fPixel, DWORD dwStyle, int bAlonemgr = false) override;
+	virtual HRESULT CreateScene(IKG3DScene ** pp3DScene, const char * cszEnvFileName = NULL) override;
+	virtual HRESULT ScreenShot(const char szFilePath[], D3DXIMAGE_FILEFORMAT eType, int nQuality, RECT const & ShotRect) override;
+	virtual HRESULT ScreenShotEx(const char szFilePath[], D3DXIMAGE_FILEFORMAT eType, DWORD nWidth, DWORD nHeight) override;
+	virtual HRESULT OverSamplingScreenShot(LPCTSTR tszFilePath, D3DXIMAGE_FILEFORMAT eType, INT nMagnification = 2, BOOL bOuputSourceScreenShot = FALSE) override;
+	virtual void DrawScreen3DSfx(IKG3DModel * p3DModel, D3DXVECTOR2 Pos, float fBoxW, float fBoxH, int bClearZ, int bRenderBox) override;
+	virtual HRESULT GetModelBoxSize(IKG3DModel * pModel, float & rfWidth, float & rfHeight) override;
+	virtual void ResetDrawState() override;
+	virtual HRESULT BeginRenderToTextureEx(DWORD dwTextureID, UINT uMipmapLevel) override;
+	virtual void TransformSceneCoorSys() override;
+	virtual void TransformUICoorSys() override;
+	virtual void RestoreCoorSys() override;
+	virtual HRESULT OnResetViewport(UINT uWidth, UINT uHeight) override;
+	virtual HRESULT SetCodePage(unsigned int uCodePage) override;
+	virtual unsigned int GetCodePage() override;
+	virtual int LockDiffuseVertexBuff(UINT uVertexCnt, K2DDiffuseVertex ** ppVer, UINT * pnRetStartVertex) override;
+	virtual int UnLockDiffuseVertexBuff() override;
+	virtual size_t GetDiffuseVertexNums() override;
+	virtual HRESULT DrawPrimitive(D3DPRIMITIVETYPE PrimitiveType, UINT StartVertex, UINT nCount) override;
+	virtual int LockTex1VertexBuff(UINT uVertexCnt, K2DTex1Vertex ** ppVer, UINT * pnRetStartVertex) override;
+	virtual int UnLockTex1VertexBuff() override;
+	virtual size_t GetTex1VertexNums() override;
+	virtual HRESULT DrawPrimitive(D3DPRIMITIVETYPE PrimitiveType, DWORD_PTR dwTextureID, UINT StartVertex, UINT nCount) override;
+	virtual HRESULT BeginDrawMultiScene() override;
+	virtual HRESULT EndDrawMultiScene() override;
+	virtual DWORD_PTR GetImageTexture(DWORD dwImageID, D3DFORMAT * pFormat) override;
+	virtual void ChangeDrawState(KDrawState DrawState) override;
+	virtual HRESULT GetTextureRenderData(DWORD_PTR dwTextureID, UINT uWidth, UINT uHeight, BYTE * pData, size_t uLength, BOOL bUpToDown) override;
+	virtual HRESULT CreateTexture(UINT uWidth, UINT uHeight, DWORD_PTR * pdwTextureID) override;
+	virtual void ReleaseTexture(DWORD_PTR dwTextureID) override;
+	virtual IKG3DFontTexture * GetFont(DWORD dwFontID) override;
+	virtual HRESULT GetTextRange(DWORD dwFontID, LPCWSTR wszText, int nTextLen, LPCWSTR wszEnd, FLOAT fCursorPos, FLOAT fSpace, FLOAT fScale, LPINT lpCharPos, FLOAT & fWidth, FLOAT & fHeight, int nBorder = 0) const override;
+	virtual HRESULT ReloadTexture(LPCTSTR szFilePath, DWORD dwImageID, int bGray) override;
+	virtual HRESULT LoadImageA(LPCTSTR szFilePath, LPDWORD pdwImageID, int bGray = 0);
 };
 
 #endif // KG3D_UI_H
