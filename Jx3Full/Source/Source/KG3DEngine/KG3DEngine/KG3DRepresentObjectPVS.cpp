@@ -1157,8 +1157,15 @@ namespace {
         
         bool operator()(KG3DPvsPortal* left, KG3DPvsPortal* rigt)
         {
-            D3DXVECTOR3 left_pos =*(D3DXVECTOR3)(left->GetWorldMatrix()._41);
-            D3DXVECTOR3 rigt_pos = (D3DXVECTOR3)(rigt->GetWorldMatrix()._41);
+			// TODO: debug this
+			D3DXVECTOR3 left_pos;
+			left_pos.x = left->GetWorldMatrix()._41;
+			left_pos.y = left->GetWorldMatrix()._42;
+			left_pos.z = left->GetWorldMatrix()._43;
+			D3DXVECTOR3 rigt_pos;
+			rigt_pos.x = rigt->GetWorldMatrix()._41;
+			rigt_pos.y = rigt->GetWorldMatrix()._42;
+			rigt_pos.z = rigt->GetWorldMatrix()._43;
             return D3DXVec3LengthSq(&(left_pos - vCamPos)) > D3DXVec3LengthSq(&(rigt_pos - vCamPos));
         }
 

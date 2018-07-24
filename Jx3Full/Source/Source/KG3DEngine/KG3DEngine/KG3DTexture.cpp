@@ -680,13 +680,13 @@ HRESULT KG3DTexture::UpdateTexture()
 	if(!m_pTextureSys)
 	{
 		KGLogPrintf(KGLOG_ERR, "KG3DTexture::UpdateTexture %s failed.", m_scName.c_str());
-		int k = 0;
+		//int k = 0;
 	}
 	KGLOG_PROCESS_ERROR(m_pTextureSys);
 
 
 	float nGate1 = 20;
-	float nGate0 = 0.5F * nGate1;
+	//float nGate0 = 0.5F * nGate1;
 
 	if(m_bCanReload && m_pTextureSysSmall)
 	{

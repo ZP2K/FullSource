@@ -1788,6 +1788,8 @@ typedef struct _KG3DREGION_INFORMER_LOADFILE_PARAM
 {
 	INT nRegionXCount, nRegionZCount;
 	LPSTR strError;
+	UINT uHowManyPixelsInOneRegion;
+	INT nSampleTimes;
 } KG3DREGION_INFORMER_LOADFILE_PARAM;
 
 #endif  //.height _KG3DINTERFACE_H_
