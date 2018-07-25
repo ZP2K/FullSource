@@ -32,6 +32,16 @@ static char THIS_FILE[] = __FILE__;
 
 extern BOOL g_bDesign;
 
+template<typename T>
+void _CONST_CONTAINER_SAFE_RELEASE(T& _c)
+{
+	for (auto& cit : _c)
+	{
+		auto _cit = &const_cast<std::remove_const<decltype(*cit)>::type>(*cit);
+		SAFE_RELEASE(_cit);
+	}
+}
+
 DWORD KG3DSceneSelectionToolSolid::m_ObjectSelectMask = 0xFFFFFFFF; // 初始化对象选择掩码 add by suntao 
 
 //class PrivateObjectContainer : public KG3DSceneEntityContainer 
@@ -72,8 +82,10 @@ KG3DSceneSelectionToolSolid::~KG3DSceneSelectionToolSolid()
 
 	for (TypeCtList::iterator it = m_selGroups.begin(); it != m_selGroups.end(); ++it)
 	{
-		auto &ct = const_cast<decltype(it->second)&>(it->second);
-		KG_CUSTOM_HELPERS::TContainerRelease(ct);
+		//auto &ct = it->second;
+		//KG_CUSTOM_HELPERS::TContainerRelease(ct);
+
+		_CONST_CONTAINER_SAFE_RELEASE(it->second);
 	}
 	m_selGroups.clear();
 
@@ -491,7 +503,14 @@ ULONG KG3DSceneSelectionToolSolid::IsSelected(const KG3DRepresentObject& Obj )
 HRESULT KG3DSceneSelectionToolSolid::ClearSelection()
 {
 	m_SelectedEntities.clear();
-	KG_CUSTOM_HELPERS::TContainerRelease(m_selectedObjCt);
+	//KG_CUSTOM_HELPERS::TContainerRelease(m_selectedObjCt);
+
+	for (auto& cit : m_selectedObjCt)
+	{
+		auto _cit = &const_cast<std::remove_const<decltype(*cit)>::type>(*cit);
+		SAFE_RELEASE(_cit);
+	}
+
 	return S_OK;
 }
 
@@ -541,7 +560,9 @@ HRESULT KG3DSceneSelectionToolSolid::ClearSelGroup( LPCTSTR pGroupName )
 {
 	TypeObjCt* p = GetSelGroup(pGroupName);
 	KG_PROCESS_ERROR(NULL == p);
-	KG_CUSTOM_HELPERS::TContainerRelease(*p);
+	//KG_CUSTOM_HELPERS::TContainerRelease(*p);
+	_CONST_CONTAINER_SAFE_RELEASE(*p);
+
 	return S_OK;
 Exit0:
 	return E_FAIL;
@@ -570,8 +591,8 @@ HRESULT KG3DSceneSelectionToolSolid::CopySelGroupToCurSelection( LPCTSTR pGroupN
 	KG_PROCESS_ERROR(NULL != p);
 
 	{
-		KG_CUSTOM_HELPERS::TContainerRelease(m_selectedObjCt);
-
+		//KG_CUSTOM_HELPERS::TContainerRelease(m_selectedObjCt);
+		_CONST_CONTAINER_SAFE_RELEASE(m_selectedObjCt);
 		m_selectedObjCt = *p;
 
 		for (TypeObjCt::iterator it = m_selectedObjCt.begin(); it != m_selectedObjCt.end(); ++it)
@@ -592,8 +613,8 @@ HRESULT KG3DSceneSelectionToolSolid::CopyCurSelectionToSelGroup( LPCTSTR pGroupN
 	KG_PROCESS_ERROR(NULL != p);
 
 	{
-		KG_CUSTOM_HELPERS::TContainerRelease(*p);
-
+		//KG_CUSTOM_HELPERS::TContainerRelease(*p);
+		_CONST_CONTAINER_SAFE_RELEASE(*p);
 		*p = m_selectedObjCt;
 
 		for (TypeObjCt::iterator it = m_selectedObjCt.begin(); it != m_selectedObjCt.end(); ++it)
