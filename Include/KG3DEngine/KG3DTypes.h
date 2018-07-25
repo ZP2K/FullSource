@@ -824,16 +824,17 @@ struct SoundDataInfoVersion2
 
 struct SoundDataInfoVersion3
 {
-	AnimationSoundTagInfo TagInfo[SST_COUNT];
+	SoundType soundType;
+	//AnimationSoundTagInfo TagInfo[SST_COUNT];
 	BOOL bLoop;
 	enuSoundMotionChangeState MotionChangeState;
 	enuSoundPlayInterrupt InterruptMode;
 	FLOAT fVolume;
 	SoundDataInfoVersion3()
 	{
-		for (int i = 0; i < SST_COUNT; i++)
+		//for (int i = 0; i < SST_COUNT; i++)
 		{
-			TagInfo[i].soundType = static_cast<SoundType>(i);
+			//TagInfo[i].soundType = static_cast<SoundType>(i);
 		}
 	}
 	inline void operator = (const SoundDataInfoVersion3 & src)

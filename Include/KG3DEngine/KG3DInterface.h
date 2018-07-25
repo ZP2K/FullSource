@@ -20,7 +20,7 @@
 #pragma warning(pop)
 
 #include "KG3DTypes.h"
-
+#include <set>
 
 ////////////////////////////////////////////////////////////////////////////////
 //
@@ -463,8 +463,8 @@ public:
 	virtual void SetRotationCenter(D3DXVECTOR3* pValue) = 0;
 	virtual void SetScalingCenter(D3DXVECTOR3* pValue) = 0;
 	virtual void SetScalingRotation(D3DXQUATERNION* pValue) = 0;
-	virtual int GetBindToSocketModel(const char cszSocketName[], vector<IEKG3DModel*> &vecpModel) = 0;
-	virtual int GetBindToSocketModel(const char cszSocketName[], vector<IKG3DModel*> &vecpModel);
+//	virtual int GetBindToSocketModel(const char cszSocketName[], std::vector<IEKG3DModel*> &vecpModel) = 0;
+//	virtual int GetBindToSocketModel(const char cszSocketName[], std::vector<IKG3DModel*> &vecpModel) = 0;
 	virtual void GetBindToOrgModel(std::set<IKG3DModel*> &set_OrgModel) = 0;
 };
 
@@ -885,7 +885,7 @@ enum
 		IPPSPEC_QUALITY_MAX			= 5500000 * 16,
 	};
 
-#endif  IPPSPEC_DEFINED
+#endif  // IPPSPEC_DEFINED
 
 class IKG3DUI;
 interface IKG3DFaceMotionSettings;

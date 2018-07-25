@@ -3,8 +3,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-
-#include "kg3dinterface.h"
+#include "KG3DInterface.h"
 #include "IEKG3DRepresentObject.h"
 #include "FileType.h"
 //#include "IEKG3DMeshBase.h"
@@ -12,13 +11,15 @@
 #include "IEKG3DSceneEntity.h"
 #include "IETools.h"
 //#include "KCell.h"
-interface IEKG3DSceneOutDoorSpaceMgr;
 #include "IEKG3DSceneSelectionTool.h"
 #include "IEEditorTypes.h"
+#include "ikg3dscenemanager.h"
+
+#include <list>
 
 interface IEKG3DTerrain;
 interface IEKG3DMaterial;
-class KG3DSceneEntity;
+interface IEKG3DSceneOutDoorSpaceMgr;
 interface IEKG3DSceneOutputWnd;
 interface IEKG3DScene;
 interface IEKG3DSceneEntity;
@@ -26,6 +27,7 @@ interface IEKG3DModel;
 interface IEKG3DSceneLayer;
 interface IEKG3DSFXBillboard;
 interface IEKG3DMeshLensFlare;
+class KG3DSceneEntity;
 
 struct _KG3DLogicalRegionInfo
 {
@@ -407,7 +409,7 @@ interface IEKG3DRepresentPoly
 	virtual HRESULT SetPolyUseage(POLYUSEAGE e) = 0;
 
 	virtual LPCTSTR GetLogicalSetName() = 0;
-	virtual HRESULT SetLogicalSetName(string strName) = 0;
+	virtual HRESULT SetLogicalSetName(std::string strName) = 0;
 
 	virtual PVOID GetObjectPointer() = 0;
 };
@@ -506,7 +508,7 @@ typedef struct _KG3DTERRAIN_LOAD_PARAM
 	int nZoneTerrainBlock;   // 是否创建Zone的TerrainBlock 
 	int nSectionTerrainBlock;// 是否创建Section的TerrainBlock
 	int nRegionTerrainBlock; // 是否创建Region的TerrainBlock
-	string strHeightMapName;
+	std::string strHeightMapName;
 	int nHeightMapWidth;
 	int nHeightLowest;
 	int nHeightTotal;
@@ -983,8 +985,8 @@ interface IEKG3DSceneSceneEditor
 	virtual HRESULT SetHelpLineName(size_t nLine,LPSTR pName) = 0;
 
 	virtual void ReplaceSelectedEntity(bool all) = 0;  // by likan
-	virtual void FindLoadedNpc(vector<IEKG3DRepresentObject *>&npcs, DWORD templateid) = 0; // by likan
-	virtual void FindLoadedDoodad(vector<IEKG3DRepresentObject *>&doodads, DWORD templateid) = 0; //by likan
+	virtual void FindLoadedNpc(std::vector<IEKG3DRepresentObject *>&npcs, DWORD templateid) = 0; // by likan
+	virtual void FindLoadedDoodad(std::vector<IEKG3DRepresentObject *>&doodads, DWORD templateid) = 0; //by likan
 
     virtual HRESULT UpdateSettings(DWORD dwSettingType) = 0;
 
@@ -1052,14 +1054,14 @@ interface IEKG3DSceneModelEditor : public IEKG3DConnectionPoint
 	virtual HRESULT PlayerNormalTool_AddModelFromIni(LPCSTR pFileName) = 0;
 	virtual HRESULT PlayerNormalTool_ProcessAllModel() = 0;
 	virtual HRESULT PlayerNormalTool_SetCurrentModelPart(int nPart,int nIndex) = 0;
-	virtual HRESULT PlayerNormalTool_GetModelPartVector(int nIndex,vector<string>* pvec) = 0;
+	virtual HRESULT PlayerNormalTool_GetModelPartVector(int nIndex, std::vector<std::string>* pvec) = 0;
 
 	//////////////////////////////////////////////////////////////////////////
 	virtual HRESULT GetSocketCount(INT* nCount) = 0;
 	virtual HRESULT GetSocketName(INT nIndex, LPTSTR lpName, INT nLen) = 0;
 	virtual HRESULT GetModelForSockets(INT nIndex, IEKG3DModel** ppModel) = 0;
     virtual HRESULT GetCurModel(IEKG3DModel **ppiRetModel) = 0;
-	virtual HRESULT GetAllModels(vector<IEKG3DModel*>* pvecModels) = 0;
+	virtual HRESULT GetAllModels(std::vector<IEKG3DModel*>* pvecModels) = 0;
 
 	virtual HRESULT SetFloorSlipSpeed(float fSpeed) = 0;
 	virtual HRESULT SetFloorTexture(LPCTSTR szFilePath) = 0;
@@ -1156,18 +1158,18 @@ interface IEKG3DSceneDataFlowEditor
 	virtual HRESULT GetNumVariableofDataDefine(DWORD* pdwNumVariable,UINT uHandle) = 0;
 	virtual HRESULT SetVariableofDataDefine(DWORD dwIndex,KG3DDATAFLOWVARIABLETYPE eType,LPCTSTR pName,UINT uHandle) = 0;
 	virtual HRESULT GetVariableofDataDefine(DWORD dwIndex,KG3DDATAFLOWVARIABLETYPE* peType,LPCTSTR pName,UINT uHandle) = 0;
-	virtual HRESULT GetAllDataDefine(vector<UINT>* pvecHandle) = 0;
+	virtual HRESULT GetAllDataDefine(std::vector<UINT>* pvecHandle) = 0;
 
 	virtual HRESULT GetNumVariableType(DWORD* pdwNumType) = 0;
 	virtual HRESULT GetVariableType(KG3DDATAFLOWVARIABLETYPE* peType,LPCTSTR pTypeName,DWORD dwIndex) = 0;
 	//////////////////////////////////////////////////////////////////////////
 	//针对处理单元
-	virtual HRESULT GetAllDataProcessorType(vector<DWORD>*pvecProcessorType) = 0;
+	virtual HRESULT GetAllDataProcessorType(std::vector<DWORD>*pvecProcessorType) = 0;
 	virtual HRESULT GetDataProcessorDescriptionByType(LPCTSTR pDesc,DWORD dwType) = 0;
 
 	virtual HRESULT NewOneDataProcessor(UINT* pHandle,DWORD dwType) = 0;
 	virtual HRESULT DeleteDataProcessor(UINT pHandle) = 0;
-	virtual HRESULT GetAllDataProcessor(vector<UINT>* pvecHandle) = 0;
+	virtual HRESULT GetAllDataProcessor(std::vector<UINT>* pvecHandle) = 0;
 
 	//////////////////////////////////////////////////////////////////////////
 	virtual HRESULT RunDataFlow(BOOL bRun) = 0;
@@ -1359,8 +1361,8 @@ interface IEKG3DModel : public IKG3DModel
 
     virtual HRESULT GetAnimationTagContainer(IEKG3DAnimationTagContainer** pContainer) = 0;
 	//在动画标签上用于取得绑定在插槽上的模型 by huangjinshou
-	virtual int GetBindToSocketModel(const char cszSocketName[],vector<IEKG3DModel*> &vecpModel) = 0;
-	virtual HRESULT GetAllChilds(vector<IEKG3DModel*> &vecpChildsModel)=0;
+	virtual int GetBindToSocketModel(const char cszSocketName[], std::vector<IEKG3DModel*> &vecpModel) = 0;
+	virtual HRESULT GetAllChilds(std::vector<IEKG3DModel*> &vecpChildsModel)=0;
 	virtual int GetNumModel() = 0;
 
 	virtual HRESULT GetMaterilDetail(int nDetailType, int nSubSetID, LPSTR pszName, LPSTR pszTextureFileName, float* pfEnv,float* pfSpecular,
@@ -1417,7 +1419,7 @@ interface IEKG3DSerpentineMgr
 	virtual DWORD   GetCount() = 0;
 	virtual BOOL    FindSerpentineByName(const TCHAR* strName) = 0;
 	virtual HRESULT SetCurSerpentine(int nIndex) = 0;
-	virtual HRESULT GetAllName(vector<std::string>& vecName) = 0;
+	virtual HRESULT GetAllName(std::vector<std::string>& vecName) = 0;
 	virtual HRESULT RefreshCurSerpentine() = 0;
 	virtual HRESULT RefreshHeight(BOOL bToTerrain) = 0;
 	virtual float	GetCurSerWidth() = 0;
