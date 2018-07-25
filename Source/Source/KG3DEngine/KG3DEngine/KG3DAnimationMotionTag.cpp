@@ -618,7 +618,7 @@ void KG3DAnimationMotionTag::OnApplyDamagePercentage(void *pData,
 
 	Info.Type = pDamage->Type;
 	Info.fData[0] = pDamage->fDamagePercentage;
-	pEventHandler->OnMotionNotify(pController, pController->GetMotionExtraInfo(), &Info);
+	pEventHandler->OnMotionNotify(pController, static_cast<DWORD>(pController->GetMotionExtraInfo()), &Info);
 Exit1:
 Exit0:
 	;
@@ -640,7 +640,7 @@ void KG3DAnimationMotionTag::OnApplyMissle(void *pData,
 	Info.Type = pMissle->Type;
 	Info.fData[0] = pMissle->fDamagePercentage;
 	Info.dwData[0] = pMissle->dwMissileID;
-	pEventHandler->OnMotionNotify(pController, pController->GetMotionExtraInfo(), &Info);
+	pEventHandler->OnMotionNotify(pController, static_cast<DWORD>(pController->GetMotionExtraInfo()), &Info);
 Exit1:
 Exit0:
 	;
@@ -664,7 +664,7 @@ void KG3DAnimationMotionTag::OnApplyEquipSfx(void *pData,
 	Info.dwData[0] = pEquipSfx->dwEquipType;
 	Info.dwData[1] = pEquipSfx->dwEquipRepesentID;
 	Info.dwData[2] = pEquipSfx->dwSfxID;
-	pEventHandler->OnMotionNotify(pController, pController->GetMotionExtraInfo(), &Info);
+	pEventHandler->OnMotionNotify(pController, static_cast<DWORD>(pController->GetMotionExtraInfo()), &Info);
 Exit1:
 Exit0:
 	;

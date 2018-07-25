@@ -211,7 +211,7 @@ namespace
 		default:
 			return false;
 		}
-		return false;
+//		return false;
 	}
 
     struct KG3DFontFacePoolItem

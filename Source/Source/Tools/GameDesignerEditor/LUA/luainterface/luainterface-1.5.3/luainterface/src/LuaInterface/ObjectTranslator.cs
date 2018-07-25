@@ -311,7 +311,7 @@ namespace LuaInterface
                 // 现支持对非com组件,以dll名字来载入.
                 if (!TryLoadAssemByFileName(assemblyName))
                 {
-                    Assembly assembly = Assembly.LoadWithPartialName(assemblyName);
+                    Assembly assembly = Assembly.Load(assemblyName);
                     //Assembly assembly = Assembly.Load(assemblyName);
 
                     try

@@ -139,8 +139,8 @@ BYTE *KG3DHeightMap::LoadPngFile(const char file_name[])
 	fpin = fopen(file_name, "rb");
 	KG_PROCESS_ERROR(fpin);
 
-	read_ptr = png_create_read_struct(PNG_LIBPNG_VER_STRING, png_voidp_NULL,
-		png_error_ptr_NULL, png_error_ptr_NULL);
+	read_ptr = png_create_read_struct(PNG_LIBPNG_VER_STRING, NULL,
+		NULL, NULL);
 	KG_PROCESS_ERROR(read_ptr);
 
 	read_info_ptr = png_create_info_struct(read_ptr);
@@ -176,7 +176,7 @@ BYTE *KG3DHeightMap::LoadPngFile(const char file_name[])
 
 	for (int y = 0; y < (int)m_PngFileInfo.height; y++)
 	{
-		png_read_rows(read_ptr, (png_bytepp)&write_pos, png_bytepp_NULL, 1);
+		png_read_rows(read_ptr, (png_bytepp)&write_pos, NULL, 1);
 		write_pos += uRowBytes;
 	}
 

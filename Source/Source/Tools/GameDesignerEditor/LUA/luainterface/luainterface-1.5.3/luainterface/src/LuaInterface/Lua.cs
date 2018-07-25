@@ -764,8 +764,8 @@ namespace LuaInterface
 
 		~LuaFunction()
         {
-            if (reference != 0)
-                ;// interpreter.dispose(reference);
+            //if (reference != 0)
+                // interpreter.dispose(reference);
 		}
 		/*
 		 * Calls the function casting return values to the types

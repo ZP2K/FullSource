@@ -260,7 +260,7 @@ HRESULT KG3DSceneDataInterfaceCore::GetEntityInformation(UINT uHandle,DWORD* pdw
 		return pEntityInfo->GetData(pData);
 	}
 
-	hr = S_OK;
+//	hr = S_OK;
 Exit0:
 	return hr;
 }
@@ -276,7 +276,7 @@ HRESULT KG3DSceneDataInterfaceCore::GetTerrainInformation(UINT uHandle,DWORD* pd
 	(*pdwLength) = pTerrainInfo->m_dwLength;
 	return pTerrainInfo->GetData(pData);
 	
-	hr = S_OK;
+//	hr = S_OK;
 Exit0:
 	return hr;
 }
@@ -559,15 +559,17 @@ HRESULT KG3DSceneDataInterfaceCore::GetRectIntersectContainers(vector<POINT>*pve
 HRESULT KG3DSceneDataInterfaceCore::TryInputEntityToLevel(KG3DEntityDataEx* pEntity,D3DXVECTOR2 A,D3DXVECTOR2 C,int nLevel)
 {
 	HRESULT hr = E_FAIL;
-	vector<POINT>vecContainer;
+	std::vector<POINT>vecContainer;
 
 	hr = GetRectIntersectContainers(&vecContainer,A,C,nLevel);
+
 	KGLOG_COM_PROCESS_ERROR(hr);
-	for (size_t i=0;i<vecContainer.size();i++)
+
+	for (size_t i=0; i<vecContainer.size(); i++)
 	{
 		POINT p = vecContainer[i];
 
-		map<POINT,KG3DSceneBlockData*>::iterator s = m_mapSceneBlockData[nLevel].find(p);
+		std::map<POINT,KG3DSceneBlockData*>::iterator s = m_mapSceneBlockData[nLevel].find(p);
 		if(s==m_mapSceneBlockData[nLevel].end())
 		{
 			return E_FAIL;
@@ -578,6 +580,8 @@ HRESULT KG3DSceneDataInterfaceCore::TryInputEntityToLevel(KG3DEntityDataEx* pEnt
 			return pContainer->InputEntity(pEntity);
 		}
 	}
+
+	return S_OK;
 
 Exit0:
 	return E_FAIL;

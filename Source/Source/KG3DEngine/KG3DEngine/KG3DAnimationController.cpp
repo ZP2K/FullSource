@@ -278,7 +278,7 @@ DWORD64 KG3DAnimationController::GetMotionExtraInfo()
 
 void KG3DAnimationController::SetMotionExtraInfo(DWORD64 dwMotionExtraInfo)
 {
-    m_dwExtraMotionTypeInfo = dwMotionExtraInfo;
+    m_dwExtraMotionTypeInfo = static_cast<DWORD>(dwMotionExtraInfo);
 }
 
 void KG3DAnimationController::Clone(KG3DAnimationController& Dest) const

@@ -904,7 +904,7 @@ HRESULT  KG3DMesh::_LoadPropertyFromIni(IIniFile *piPropertyFile)
     m_objPropertys.bInitallized = TRUE;
 
     hrResult = S_OK;
-Exit0:
+//Exit0:
     return hrResult;
 }
 
