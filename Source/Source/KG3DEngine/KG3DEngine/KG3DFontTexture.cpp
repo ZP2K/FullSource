@@ -189,24 +189,24 @@ namespace
 		switch (chText)
 		{
 		case L'<':
-		case L'¡¶':
+		case 0xE3808A:
 		case L'>':
-//		case L'¡·':
+		case 0xE3808B:
 		case L'[':
-//		case L'¡¾':
+		case 0xe38090:
 		case L']':
-//		case L'¡¿':
+		case 0xe38091:
 		case L'{':
-		case L'£û':
+		case 0xefbd9b:
 		case L'}':
-//		case L'£ý':
+		case 0xefbd9d:
 		case L'(':
-//		case L'£¨':
+		case 0xefbc8820:
 		case L')':
-//		case L'£©':
+		case 0xefbc8920:
 		case L'-':
-//		case L'¡ª':
-//		case L'¡­':
+		case 0xe2809420:
+		case 0xe280a620:
 			return true;
 		default:
 			return false;
