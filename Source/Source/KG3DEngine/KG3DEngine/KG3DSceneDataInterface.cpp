@@ -233,9 +233,9 @@ HRESULT KG3DSceneDataInterfaceCore::Request_ModifyEntityInformation(UINT uHandle
 		return S_OK;
 	}
 
-//	hr = S_OK;
-//Exit0:
-//	return hr;
+	//hr = S_OK;
+Exit0:
+	return hr;
 }
 
 

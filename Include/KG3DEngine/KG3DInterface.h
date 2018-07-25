@@ -463,6 +463,9 @@ public:
 	virtual void SetRotationCenter(D3DXVECTOR3* pValue) = 0;
 	virtual void SetScalingCenter(D3DXVECTOR3* pValue) = 0;
 	virtual void SetScalingRotation(D3DXQUATERNION* pValue) = 0;
+	virtual int GetBindToSocketModel(const char cszSocketName[], vector<IEKG3DModel*> &vecpModel) = 0;
+	virtual int GetBindToSocketModel(const char cszSocketName[], vector<IKG3DModel*> &vecpModel);
+	virtual void GetBindToOrgModel(std::set<IKG3DModel*> &set_OrgModel) = 0;
 };
 
 

@@ -310,7 +310,7 @@ HRESULT D3DXMeshCreatePlane( LPDIRECT3DDEVICE9 pDevice, DWORD dwFVF, DWORD dwOpt
 	}
 Exit0:
 	SAFE_RELEASE(pMesh);
-	return NULL;
+//	return NULL;
 	return E_FAIL;
 }
 

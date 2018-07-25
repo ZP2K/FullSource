@@ -56,7 +56,7 @@ HRESULT KG3DRenderState::SetRenderState(D3DRENDERSTATETYPE State, DWORD Value)
 	
 Exit1:
 	return S_OK;
-//Exit0:	
+Exit0:	
 	return E_FAIL;
 }
 
@@ -91,7 +91,7 @@ HRESULT KG3DRenderState::SetTextureStageState(DWORD Stage, D3DTEXTURESTAGESTATET
 
 Exit1:
 	return S_OK;
-//Exit0:	
+Exit0:	
 	return E_FAIL;
 }
 
@@ -127,7 +127,7 @@ HRESULT KG3DRenderState::SetSamplerState(DWORD Sampler,
     }
 Exit1:
     return S_OK;
-    //Exit0:	
+Exit0:	
     return E_FAIL;
 }	
 

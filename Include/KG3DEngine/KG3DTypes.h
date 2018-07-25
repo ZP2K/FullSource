@@ -773,6 +773,15 @@ struct SoundTagSoundFileCandidate1
 	}
 };
 
+enum SoundType
+{
+	SST_NONE = -1,
+	SST_COMMON,
+	SST_BODY = SST_COMMON,
+	SST_WEAPON,
+	SST_COUNT,
+};
+
 struct SoundDataInfoVersion1
 {
 	TCHAR strTagName[TAG_NAME_MAX_LENGTH];
@@ -813,14 +822,26 @@ struct SoundDataInfoVersion2
 	}
 };
 
-enum SoundType
+struct SoundDataInfoVersion3
 {
-	SST_NONE = -1,
-	SST_COMMON,
-	SST_BODY  = SST_COMMON,
-    SST_WEAPON,
-	SST_COUNT,
+	AnimationSoundTagInfo TagInfo[SST_COUNT];
+	BOOL bLoop;
+	enuSoundMotionChangeState MotionChangeState;
+	enuSoundPlayInterrupt InterruptMode;
+	FLOAT fVolume;
+	SoundDataInfoVersion3()
+	{
+		for (int i = 0; i < SST_COUNT; i++)
+		{
+			TagInfo[i].soundType = static_cast<SoundType>(i);
+		}
+	}
+	inline void operator = (const SoundDataInfoVersion3 & src)
+	{
+		memcpy_s(this, sizeof(SoundDataInfoVersion3), &src, sizeof(SoundDataInfoVersion3));
+	}
 };
+
 struct AnimationSoundTagInfo 
 {
 	SoundType soundType;
@@ -849,22 +870,6 @@ struct AnimationSoundTagInfo
     }
 };
 
-
-struct SoundDataInfoVersion3 
-{        
-    AnimationSoundTagInfo TagInfo[SST_COUNT];
-    SoundDataInfoVersion3()
-    {
-        for(int i = 0 ; i < SST_COUNT ; i ++)
-        {
-            TagInfo[i].soundType = static_cast<SoundType>(i);
-        }
-    }
-    inline void operator = (const SoundDataInfoVersion3 & src)
-    {
-        memcpy_s(this,sizeof(SoundDataInfoVersion3),&src,sizeof(SoundDataInfoVersion3));
-    }
-};
 
 struct SoundDataInfoUnion//方便数据的修改 
 {

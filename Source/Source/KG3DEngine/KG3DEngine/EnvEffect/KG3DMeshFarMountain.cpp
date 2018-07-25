@@ -670,7 +670,7 @@ Exit0:
 				
 				tmpDesc.m_fBotmZPos = pStruct->m_fBotmZPos;
 
-				tmpDesc.m_fZRotation = fmod(pStruct->m_fZRotation, 360);
+				tmpDesc.m_fZRotation = static_cast<float>(fmod(pStruct->m_fZRotation, 360));
 
 				tmpDesc.m_fTexCordUTiles = pStruct->m_fTexCordUTiles;
                 /*FLOAT fRadius = pStruct->m_fRadius;

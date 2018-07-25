@@ -691,7 +691,7 @@ bool KG3DSceneEntityContainer::InputObjectToPvs(KG3DEntityObjectShell* objShell)
     if (!objShell)
         return false;
 
-	return m_Data.InputObjectShellToPvs(objShell);
+	return static_cast<bool>(m_Data.InputObjectShellToPvs(objShell));
 }
 
 //bool KG3DSceneEntityContainer::CheckConnectNode(KG3DEntityObjectShell* objShell)

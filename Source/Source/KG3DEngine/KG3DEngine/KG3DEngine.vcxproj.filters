@@ -2754,6 +2754,7 @@
     <ClCompile Include="KG3DSelector.cpp" />
     <ClCompile Include="KG3DStateMachineBase.cpp" />
     <ClCompile Include="KG3DTerrainRepresentInfo.cpp" />
+    <ClCompile Include="KG3DTemplates.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="KG3DEngine.rc">

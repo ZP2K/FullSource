@@ -33,7 +33,7 @@ TCHAR g_szConfigFilePath[MAX_PATH];
 
 static int GetDllFilePath(HMODULE hModule)
 {
-    int nRetCode = false;
+    //int nRetCode = false;
     int nResult = false;
     LPTSTR pszDelimiter = NULL;
 

@@ -85,7 +85,7 @@ HRESULT KG3DAnimationSoundTag::ClearTag(UINT uId)
 	{
 	case 3:
 		{
-			m_TagsVersion3[uFrame].Data.soundType = ST_NONE;
+			m_TagsVersion3[uFrame].Data.soundType = SST_NONE;
 		}
 		break;
 	default:
@@ -313,7 +313,7 @@ HRESULT KG3DAnimationSoundTag::Helper_Apply(KG3DAnimationController* pController
             DWORD dwHandle = 0;
 			BOOL bIsVersion3 = FALSE;
 
-			if(m_TagsVersion3[m_KeyedFrame[uIndex]].Data.soundType != ST_NONE)
+			if(m_TagsVersion3[m_KeyedFrame[uIndex]].Data.soundType != SST_NONE)
 				bIsVersion3 = TRUE;
 			if(!bIsVersion3)
 			{
@@ -397,7 +397,7 @@ HRESULT KG3DAnimationSoundTag::Helper_Apply(KG3DAnimationController* pController
                     {
 				        hr = pSound->Play3DSound(CHARACTER_SOUND,
 					        SoundTagInfo.strFileName,
-                            Frame.Data.fVolume/100.0,
+                            Frame.Data.fVolume/100.0f,
 					        //1.0f, //Candidate.fVolume / 100.0f,
 					        Frame.Data.bLoop,
 					        pvPos,
@@ -628,7 +628,7 @@ BOOL KG3DAnimationSoundTag::IsOnlyVersion2Data()
     KeyFrameInfoVersion3::iterator it = m_TagsVersion3.begin();
     while (it != m_TagsVersion3.end())
     {
-        KG_PROCESS_ERROR((it->second).Data.soundType == ST_NONE);
+        KG_PROCESS_ERROR((it->second).Data.soundType == SST_NONE);
         it ++;
     }
     bResult = TRUE;
@@ -1285,7 +1285,7 @@ void KG3DAnimationSoundTag::ClearDumpedTag()
 		if (ZeroKeys.count(m_KeyedFrame[i]))
 		{
 		    if(m_TagsVersion3.find(m_KeyedFrame[i]) == m_TagsVersion3.end() ||
-			    m_TagsVersion3[m_KeyedFrame[i]].Data.soundType == ST_NONE)
+			    m_TagsVersion3[m_KeyedFrame[i]].Data.soundType == SST_NONE)
 		    {
 			    m_Tags.erase(m_KeyedFrame[i]);
 			    m_TagsVersion3.erase(m_KeyedFrame[i]);
@@ -1312,12 +1312,12 @@ BOOL KG3DAnimationSoundTag::IsModify()
     {
         SoundData = m_Tags[m_KeyedFrame[i]].Data;
         SoundDataVersion3 = m_TagsVersion3[m_KeyedFrame[i]].Data;
-        for (int j = 0 ; j < SoundData.dwValidateCandidate ; j ++)
+        for (DWORD j = 0 ; j < SoundData.dwValidateCandidate ; j++)
         {
             if( fabs(SoundData.SoundCandidates[j].fVolume - fComBy) > 1e-5)
                 return TRUE;
         }
-        if( SoundDataVersion3.soundType != ST_NONE && fabs(SoundDataVersion3.fVolume - fComBy) > 1e-5)
+        if( SoundDataVersion3.soundType != SST_NONE && fabs(SoundDataVersion3.fVolume - fComBy) > 1e-5)
             return TRUE;
     }
     return FALSE;
@@ -1337,7 +1337,7 @@ HRESULT KG3DAnimationSoundTag::GetSoundTagInfo(void *pDefault)
         SoundData = m_Tags[m_KeyedFrame[i]].Data;
         SoundDataVersion3 = m_TagsVersion3[m_KeyedFrame[i]].Data;
         SoundTagInfo TagInfo;
-        for (int j = 0 ; j < SoundData.dwValidateCandidate ; j ++)
+        for (DWORD j = 0 ; j < SoundData.dwValidateCandidate ; j ++)
         {
             TagInfo.dwFrame = m_KeyedFrame[i];
             TagInfo.dwIndex = j;
@@ -1346,7 +1346,7 @@ HRESULT KG3DAnimationSoundTag::GetSoundTagInfo(void *pDefault)
             TagInfo.fVolume = SoundData.SoundCandidates[j].fVolume;
             pvSoundTagInfo->push_back(TagInfo);
         }
-        if(SoundDataVersion3.soundType != ST_NONE)
+        if(SoundDataVersion3.soundType != SST_NONE)
         {
             TagInfo.dwFrame = m_KeyedFrame[i];
             TagInfo.fVolume = SoundDataVersion3.fVolume;
@@ -1372,7 +1372,7 @@ HRESULT KG3DAnimationSoundTag::Play3DSound(LPSTR pFileName,FLOAT fVolume)
     {
         pSound->Play3DSound(CHARACTER_SOUND,
             pFileName,
-            fVolume/100.0,
+            fVolume/100.0f,
             FALSE,
             &pos,
             &vec3Vel,

@@ -558,10 +558,9 @@ HRESULT KG3DModel::UnInit()
 	while(m_ChildModels.size())
 	{
 		set<KG3DModelLod>::iterator it = m_ChildModels.begin();
-		KG3DModelLod& pLod = (*it);
 
-		if(pLod.pModelHigh)
-			pLod.pModelHigh->UnBindFromOther();
+		if(it->pModelHigh)
+			it->pModelHigh->UnBindFromOther();
 
 	/*	if (pModel->GetType() == MESHTYPE_SFX)
 		{
@@ -1527,27 +1526,24 @@ void KG3DModel::UpdateChildModel()
 
 	std::set<KG3DModelLod> UpdateList = m_ChildModels;
 
-	for (std::set<KG3DModelLod>::iterator i = UpdateList.begin(); 
-		i != UpdateList.end(); 
-		i++)
+	for (std::set<KG3DModelLod>::iterator it = UpdateList.begin(); it != UpdateList.end(); it++)
 	{
-		KG3DModelLod& pChild = *i;
-		KG3DModel* pLast = pChild.pModelCurrent;
+		KG3DModel* pLast = it->pModelCurrent;
 
-		if(pChild.pModelCurrent)
+		if(it->pModelCurrent)
 		{
-			pChild.pModelCurrent->SetClientAdd(m_bClientAdd);
-			hr = pChild.pModelCurrent->FrameMove();
+			it->pModelCurrent->SetClientAdd(m_bClientAdd);
+			hr = it->pModelCurrent->FrameMove();
 		}
 
-		if(pChild.pModelCurrent != pChild.pModelHigh)
+		if(it->pModelCurrent != it->pModelHigh)
 		{
-			if(pLast != pChild.pModelCurrent)
+			if(pLast != it->pModelCurrent)
 			{
-				*(KG3DTransformation*)pChild.pModelCurrent = *(KG3DTransformation*)pChild.pModelHigh;
+				*(KG3DTransformation*)it->pModelCurrent = *(KG3DTransformation*)it->pModelHigh;
 			}
-			pChild.pModelHigh->SetClientAdd(m_bClientAdd);
-			//hr = pChild.pModelHigh->FrameMove();
+			it->pModelHigh->SetClientAdd(m_bClientAdd);
+			//hr = it->pModelHigh->FrameMove();
 		}
 	}
 }
@@ -1833,10 +1829,10 @@ HRESULT KG3DModel::UnBindFromOther()
 		KG3DModelLod lod;
 		lod.pModelHigh = this;
 
-		set<KG3DModelLod>::iterator s = m_pParentModel->m_ChildModels.find(lod);
+		auto s = m_pParentModel->m_ChildModels.find(lod);
 		if(s!=m_pParentModel->m_ChildModels.end())
 		{
-			KG3DModelLod& vLod = *s;
+			auto &vLod = *s;
 			if(vLod.pModelLow)
 			{
 				vLod.pModelLow->m_pParentModel = NULL;
@@ -1849,8 +1845,10 @@ HRESULT KG3DModel::UnBindFromOther()
 				vLod.pModelMedium->m_nBindIndex = -1;
 				vLod.pModelMedium->m_BindType = ENUM_BIND_NONE;
 			}
-			SAFE_RELEASE(vLod.pModelLow);
-			SAFE_RELEASE(vLod.pModelMedium);
+			//SAFE_RELEASE(vLod.pModelLow);
+			//SAFE_RELEASE(vLod.pModelMedium);
+			vLod.pModelLow->Release();
+			vLod.pModelMedium->Release();
 			m_pParentModel->m_ChildModels.erase(s);
 		}
 
@@ -2247,7 +2245,7 @@ void KG3DModel::UpdateChildRuntimMaterial()
 	std::set<KG3DModelLod>::iterator itend = m_ChildModels.end();
 	while (it != itend)
 	{
-		KG3DModelLod& Lod = *it;
+		auto &Lod = *it;
 
 		if (Lod.pModelCurrent)
 		{
@@ -2618,7 +2616,7 @@ HRESULT KG3DModel::SetAlpha(float fAlpha, BOOL bUseSpecail)
 	std::set<KG3DModelLod>::iterator iend = m_ChildModels.end();
 	while (i != iend)
 	{
-		KG3DModelLod& Lod = *i;
+		auto &Lod = *i;
 
 		if(Lod.pModelCurrent)
 			Lod.pModelCurrent->SetAlpha(fAlpha, bUseSpecail);
@@ -3142,7 +3140,7 @@ void KG3DModel::_SetPhysicsScene(KG3DPhysiscScene *pScene)
 	std::set<KG3DModelLod>::iterator it;
 	for (it = m_ChildModels.begin(); it != m_ChildModels.end(); ++it)
 	{
-		KG3DModelLod& ChildModel = *it;
+		auto &ChildModel = *it;
 		if(ChildModel.pModelCurrent)
 			ChildModel.pModelCurrent->SetPhysicsScene(pScene);
 	}
@@ -3595,7 +3593,7 @@ void KG3DModel::SetHighLightLevel(float fIllumination, BOOL bInherit)
 		for (std::set<KG3DModelLod>::iterator i = m_ChildModels.begin(); 
 			i != m_ChildModels.end(); i++)
 		{
-			KG3DModelLod& Lod = *i;
+			auto &Lod = *i;
 			if (Lod.pModelCurrent)
 			{
 				Lod.pModelCurrent->SetHighLightLevel(fIllumination, bInherit);
@@ -3618,7 +3616,7 @@ HRESULT KG3DModel::SetLOD(float fLod)
 
 	while (i != itEnd)
 	{
-		KG3DModelLod& Lod = *i;
+		auto &Lod = const_cast<KG3DModelLod&>(*i);
 
 		if(fLod<=0.33333F && Lod.pModelLow)
 		{
@@ -4069,7 +4067,7 @@ void KG3DModel::SetVisible()
 	m_bVisible = TRUE;
 	while (i != itEnd)
 	{
-		KG3DModelLod& Lod = *i;
+		auto &Lod = *i;
 		if (Lod.pModelCurrent)
 		{
 			Lod.pModelCurrent->SetVisible();
@@ -4216,7 +4214,7 @@ HRESULT KG3DModel::UnbindChild(const TCHAR* strBindObjName)
     i = m_ChildModels.begin();
 	while (i != m_ChildModels.end())
 	{
-		KG3DModelLod& Lod = *i;
+		KG3DModelLod& Lod = const_cast<KG3DModelLod&>(*i);
 
 		if (!strcmp(Lod.pModelCurrent->m_scBindToObjName.c_str(), strBindObjName))
 		{
@@ -4390,7 +4388,7 @@ HRESULT KG3DModel::RenderChildModels(unsigned int uOption, void* pExtInfo)
 	std::set<KG3DModelLod>::iterator iend = m_ChildModels.end();
 	for (std::set<KG3DModelLod>::iterator i = m_ChildModels.begin(); i != iend; i++)
 	{
-		KG3DModelLod& Lod = *i;
+		KG3DModelLod& Lod = const_cast<KG3DModelLod&>(*i);
 		//if (*i && ((!(*i)->m_nIsSockWave) || ((*i)->m_dwShockMode == SHOCK_WAVE_ADD)))
 
 		if (Lod.pModelCurrent->CheckNeedRender())
@@ -4582,7 +4580,7 @@ void KG3DModel::CopyBindInfo(KG3DModel* pModel)
 	for (std::set<KG3DModelLod>::iterator i = m_ChildModels.begin();
 		i != m_ChildModels.end(); i++)
 	{
-		KG3DModelLod& Lod = *i;
+		KG3DModelLod& Lod = const_cast<KG3DModelLod&>(*i);
 		if (Lod.pModelHigh)
 		{
 			Lod.pModelHigh->UnBindFromOther();
@@ -4592,7 +4590,7 @@ void KG3DModel::CopyBindInfo(KG3DModel* pModel)
 	for (std::set<KG3DModelLod>::iterator i = Children.begin();
 		i != Children.end(); i++)
 	{
-		KG3DModelLod& Lod = *i;
+		KG3DModelLod& Lod = const_cast<KG3DModelLod&>(*i);
 
 		if (!Lod.pModelHigh)
 			continue;
@@ -4645,7 +4643,7 @@ vector<KG3DModel*> KG3DModel::GetAllChilds()
 	vecChilds.reserve(m_ChildModels.size());//预分配内存能大大加速
     for (std::set<KG3DModelLod>::iterator i = m_ChildModels.begin(); i != m_ChildModels.end(); i++)
 	{
-		KG3DModelLod& Lod = *i;
+		KG3DModelLod& Lod = const_cast<KG3DModelLod&>(*i);
 		if(Lod.pModelCurrent)
 			vecChilds.push_back(Lod.pModelCurrent);
 	}
@@ -4656,8 +4654,8 @@ HRESULT KG3DModel::GetAllChilds(vector<IEKG3DModel*> &vecpChildsModel)
 {
 	vecpChildsModel.reserve(vecpChildsModel.size() + m_ChildModels.size());
 	for (std::set<KG3DModelLod>::iterator i = m_ChildModels.begin(); i != m_ChildModels.end(); i++)
-	{		
-		KG3DModelLod& Lod = *i;
+	{
+		KG3DModelLod& Lod = const_cast<KG3DModelLod&>(*i);
 		if(Lod.pModelCurrent)
 			vecpChildsModel.push_back(static_cast<IEKG3DModel*>(Lod.pModelCurrent));
 	}
@@ -4668,7 +4666,7 @@ HRESULT KG3DModel::GetAllChilds(vector<IKG3DModel*> &vecpChildsModel)
 {
 	for (std::set<KG3DModelLod>::iterator i = m_ChildModels.begin(); i != m_ChildModels.end(); i++)
 	{
-		KG3DModelLod& Lod = *i;
+		KG3DModelLod& Lod = const_cast<KG3DModelLod&>(*i);
 		if(Lod.pModelCurrent)
 			vecpChildsModel.push_back(static_cast<IKG3DModel*>(Lod.pModelCurrent));
 	}
@@ -5314,7 +5312,7 @@ HRESULT KG3DModel::GetFirstChildModel(IEKG3DModel **ppModel)
     m_itChildModel = m_ChildModels.begin();
     if (m_itChildModel != m_ChildModels.end())
     {
-		KG3DModelLod& Lod = *m_itChildModel;
+		KG3DModelLod& Lod = const_cast<KG3DModelLod&>(*m_itChildModel);
         piModel = Lod.pModelCurrent;
         ++m_itChildModel;
     }
@@ -5333,7 +5331,7 @@ HRESULT KG3DModel::GetNextChildModel(IEKG3DModel **ppModel)
 
     if (m_itChildModel != m_ChildModels.end())
     {
-		KG3DModelLod& Lod = *m_itChildModel;
+		KG3DModelLod& Lod = const_cast<KG3DModelLod&>(*m_itChildModel);
 
         piModel = Lod.pModelCurrent;
         ++m_itChildModel;
@@ -5436,7 +5434,7 @@ BOOL KG3DModel::IsResourceReady(BOOL bTestTexture)
 		i != m_ChildModels.end(); 
 		i++)
 	{
-		KG3DModelLod& Lod = *i;
+		KG3DModelLod& Lod = const_cast<KG3DModelLod&>(*i);
 
 		KG3DModel* pChild = Lod.pModelCurrent;
 
@@ -5801,7 +5799,7 @@ int KG3DModel::GetBindToSocketModel(const char cszSocketName[],vector<IEKG3DMode
 	std::set<KG3DModelLod>::iterator i = m_ChildModels.begin();
 	while (i != m_ChildModels.end())
 	{
-		KG3DModelLod& Lod = *i;
+		auto &Lod = *i;
 
 		std::string SocketName;
 		Lod.pModelCurrent->GetBindBoneName(SocketName);
@@ -5824,7 +5822,7 @@ int KG3DModel::GetBindToSocketModel(const char cszSocketName[],vector<IKG3DModel
 	std::set<KG3DModelLod>::iterator i = m_ChildModels.begin();
 	while (i != m_ChildModels.end())
 	{
-		KG3DModelLod& Lod = *i;
+		auto &Lod = *i;
 		std::string SocketName;
 		Lod.pModelCurrent->GetBindBoneName(SocketName);
 		if(stricmp(SocketName.c_str(),cszSocketName) == 0)
@@ -6210,10 +6208,10 @@ Exit0:
 void KG3DModel::SetRenderSpecialAlpha(BOOL bEnable)
 {
 	m_bRenderSpecialAlpha = bEnable; 
-	std::set<KG3DModelLod>::iterator it = m_ChildModels.begin();
+	auto it = m_ChildModels.begin();
 	while (it != m_ChildModels.end())
 	{
-		KG3DModelLod& Lod = *it;
+		auto &Lod = *it;
 		Lod.pModelCurrent->SetRenderSpecialAlpha(bEnable);
 		it++;
 	}
@@ -6774,9 +6772,7 @@ HRESULT KG3DModel::EnableHideFromRenderTools(BOOL bEnable)
 
 	for (std::set<KG3DModelLod>::iterator i = m_ChildModels.begin(); i != m_ChildModels.end(); i++)
 	{
-		KG3DModelLod& Lod = *i;
-
-		KG3DModel* pSubModel = Lod.pModelCurrent;
+		KG3DModel* pSubModel = i->pModelCurrent;
 		pSubModel->EnableHideFromRenderTools(bEnable);
 	}
 	return S_OK;
@@ -6856,7 +6852,7 @@ void KG3DModel::SetSelectIndex(DWORD dwIndex)
 	std::set<KG3DModelLod>::iterator itEnd = m_ChildModels.end();
 	while(it != itEnd)
 	{
-		KG3DModelLod& Lod = *it;
+		KG3DModelLod& Lod = const_cast<KG3DModelLod&>(*it);
 
 		if (Lod.pModelCurrent)
 		{
@@ -7231,7 +7227,7 @@ HRESULT KG3DModel::SetPointLightInfo(KG3D_PointLight_Info& vInfo)
 		}
 		for (std::set<KG3DModelLod>::iterator i = m_ChildModels.begin(); i != m_ChildModels.end(); i++)
 		{
-			KG3DModelLod& Lod = *i;
+			KG3DModelLod& Lod = const_cast<KG3DModelLod&>(*i);
 
 			KG3DModel* pSubModel = Lod.pModelCurrent;
 			pSubModel->SetPointLightInfo(vInfo);

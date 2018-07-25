@@ -712,11 +712,9 @@ HRESULT KG3DModelST::Render(unsigned int uOption, void* pExtInfo)
 
 	while (it != itEnd) 
 	{
-		//if (*it && !(*it)->m_nIsSockWave)
-		KG3DModelLod Lod = *it;
-        if (Lod.pModelCurrent->CheckNeedRender())
+        if (it->pModelCurrent->CheckNeedRender())
 		{
-			Lod.pModelCurrent->Render(0, NULL);
+			it->pModelCurrent->Render(0, NULL);
 		}
 		it++;
 	}
@@ -807,9 +805,7 @@ HRESULT KG3DModelST::RenderReflect(float fWaterHeight,D3DXPLANE& WaterPlane,D3DX
 	{
 		for (std::set<KG3DModelLod>::iterator i = m_ChildModels.begin(); i != m_ChildModels.end(); i++)
 		{
-			KG3DModelLod Lod = *i;
-
-			KG3DModel* pModel = Lod.pModelCurrent;
+			KG3DModel* pModel = i->pModelCurrent;
 			//if (pModel && ! pModel->m_nIsSockWave)
             if (pModel->CheckNeedRender())
 			{
@@ -1492,9 +1488,7 @@ HRESULT KG3DModelST::UnbindChild(const TCHAR* strBindObjName)
 		std::set<KG3DModelLod>::iterator it = m_ChildModels.begin();
 		while (it != m_ChildModels.end())
 		{
-			KG3DModelLod Lod = *it;
-
-			KG3DModel *pChild = Lod.pModelHigh;
+			KG3DModel *pChild = it->pModelHigh;
 			if (pChild)
 			{
 				pChild->UnBindFromOther();

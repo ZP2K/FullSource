@@ -790,6 +790,7 @@ copy $(OutDir)$(ProjectName)_AutoTest.dll ..\..\..\..\sword3-products\trunk\clie
     <ClInclude Include="KG3DTerrainRepresentInfo.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="KG3DTemplates.cpp" />
     <ClCompile Include="Scene\KG3DCamera.cpp" />
     <ClCompile Include="KG3DCameraPreset.cpp" />
     <ClCompile Include="Scene\KG3DEntity.cpp" />

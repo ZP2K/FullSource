@@ -685,7 +685,7 @@ HRESULT KG3DTexture::UpdateTexture()
 	KGLOG_PROCESS_ERROR(m_pTextureSys);
 
 
-	float nGate1 = 20;
+	//float nGate1 = 20;
 	//float nGate0 = 0.5F * nGate1;
 
 	if(m_bCanReload && m_pTextureSysSmall)
