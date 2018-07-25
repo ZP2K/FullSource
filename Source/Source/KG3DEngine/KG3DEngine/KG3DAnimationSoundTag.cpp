@@ -347,7 +347,7 @@ HRESULT KG3DAnimationSoundTag::Helper_Apply(KG3DAnimationController* pController
 					    D3DXVECTOR3 vVel(0.0f, 0.0f, 0.0f);
 					    hr = pSound->Play3DSound(CHARACTER_SOUND,
 						    Candidate.strSoundFileName.strFileName,
-                                Candidate.fVolume/100.0,
+                                Candidate.fVolume/100.0f,
 						    //1.0f, //Candidate.fVolume / 100.0f,
 						    Frame.Data.bLoop,
 						    pvPos,
@@ -392,7 +392,7 @@ HRESULT KG3DAnimationSoundTag::Helper_Apply(KG3DAnimationController* pController
                 {
                     D3DXVECTOR3 vec3ListenerPos;
                     pSound->GetListenerPosition(&vec3ListenerPos, NULL);
-                    float fDis = D3DXVec3Length(&(vec3ListenerPos - *pvPos));
+                    //float fDis = D3DXVec3Length(&(vec3ListenerPos - *pvPos));
                     if (pvPos)
                     {
 				        hr = pSound->Play3DSound(CHARACTER_SOUND,

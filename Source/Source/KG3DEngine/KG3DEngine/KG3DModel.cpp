@@ -2835,7 +2835,7 @@ HRESULT KG3DModel::GetFaceDefinition(IKG3DFaceDefinition ** ppRetFaceDef)
 {
 	return E_NOTIMPL;
 }
-HRESULT KG3DModel::SetFaceDefinition(const KG3D_CHAR_ARRAY & Param, const int & nRoleType, const KG3D_FACE_DECAL_ARRAY & vDecalDefinition, const int & nFacePartID = 0, BOOL bForceReloadFromFile = FALSE)
+HRESULT KG3DModel::SetFaceDefinition(const KG3D_CHAR_ARRAY & Param, const int & nRoleType, const KG3D_FACE_DECAL_ARRAY & vDecalDefinition, const int & nFacePartID, BOOL bForceReloadFromFile)
 {
 	return E_NOTIMPL;
 }

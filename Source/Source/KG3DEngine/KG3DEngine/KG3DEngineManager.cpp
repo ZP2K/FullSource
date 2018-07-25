@@ -192,6 +192,12 @@ public:
     virtual HRESULT OnDestroyDevice();
     virtual HRESULT OnLostDevice();
     virtual HRESULT OnResetDevice(LPDIRECT3DDEVICE9 pd3dDevice, D3DSURFACE_DESC const* pBackBufferSurfaceDesc, D3DPRESENT_PARAMETERS const* pPresentParameters);
+
+	// Inherited via IKG3DeviceCallback
+	virtual HRESULT OnResetViewport(UINT uWidth, UINT uHeight) override
+	{
+		return E_NOTIMPL;
+	}
 };
 
 static KG3DDeviceCallback s_DeviceCallback;

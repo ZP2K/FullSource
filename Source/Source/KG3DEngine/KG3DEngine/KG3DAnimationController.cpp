@@ -271,7 +271,7 @@ void KG3DAnimationController::SetModel(KG3DModel* pModel)
 	m_pModel = pModel;
 }
 
-DWORD KG3DAnimationController::GetMotionExtraInfo()
+DWORD64 KG3DAnimationController::GetMotionExtraInfo()
 {
     return m_dwExtraMotionTypeInfo;
 }

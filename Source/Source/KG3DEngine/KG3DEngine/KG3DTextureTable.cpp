@@ -208,7 +208,6 @@ Exit0:
 void  KG3DTextureTable::EvictResources( DWORD videoMax  )
 {
     g_nNumTextureDynamicLoadedFrame = 0;
-	return ;
 	//if ( videoMax >= g_pd3dDevice->GetAvailableTextureMem( ) )
 	//BOOL bCount = g_dwRenderCount % 10 <= 0;
 	//if(!bCount)

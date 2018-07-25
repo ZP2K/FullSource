@@ -250,7 +250,7 @@ void KG3DAnimationSplitter::OnSecondaryAnimationFinish(KG3DAnimationController *
 	KG3DAnimationController *pController = NULL;
 	KG3DAnimationTagContainer *pTagContainerRemove = NULL;
 	
-	DWORD dwSplitType = pActiveController->GetMotionExtraInfo();
+	DWORD64 dwSplitType = pActiveController->GetMotionExtraInfo();
 	static DWORD const s_dwContainerMap[] = { 1, //TYPE_NONE
 		0, //TYPE_PART0
 		1}; //TYPE_PART1

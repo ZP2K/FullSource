@@ -247,7 +247,7 @@ HRESULT KG3DMeshBone::Render()
                     )
                     {
                         string strBoneName;
-						KG3DModelLod& Lod = *n;
+						auto &Lod = const_cast<KG3DModelLod&>(*n);
 
                         Lod.pModelCurrent->GetBindBoneName(strBoneName);
                         if (strBoneName == m_vecSubMeshInfo[i].szBoneName)

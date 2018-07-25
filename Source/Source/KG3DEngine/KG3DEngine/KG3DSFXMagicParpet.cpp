@@ -522,7 +522,7 @@ void KG3DSFXMagicParpet::FillVertexBuffer(VFormat::_Faces_Diffuse_Texture1* pDat
 	{
 		for (int x = 0; x < m_nCellCountLine + 1; x++)
 		{
-			KGLOG_PROCESS_ERROR((nStep < dwMaxVertex));
+			KGLOG_PROCESS_ERROR((static_cast<DWORD>(nStep) < dwMaxVertex));
 
 			vPosVertex.x = fLeft + x * 100;
 			vPosVertex.z = fTop  - y * 100;

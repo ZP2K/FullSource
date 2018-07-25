@@ -789,7 +789,7 @@ HRESULT KG3DMesh::CreateBspFile()
 {
     HRESULT hrResult = E_FAIL;
     HRESULT hrRetCode = E_FAIL;
-    int nRetCode = false;
+    //int nRetCode = false;
     TCHAR szBSPPathName[MAX_PATH];
     void *pvVerticesBuffer = NULL;
     WORD* pIndexBuffer    = NULL;

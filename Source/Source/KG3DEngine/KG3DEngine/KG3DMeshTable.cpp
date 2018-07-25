@@ -96,7 +96,7 @@ Exit0:
 	return hRetCode;
 }
 
-HRESULT KG3DMeshTable::LoadResourceFromFile(const char cszFileName[], unsigned uFileNameHash, unsigned uOption, IKG3DResourceBase ** ppRetResource, bool bSyncLoad = true, ResNodeState ** res_node_state = NULL)
+HRESULT KG3DMeshTable::LoadResourceFromFile(const char cszFileName[], unsigned uFileNameHash, unsigned uOption, IKG3DResourceBase ** ppRetResource, bool bSyncLoad, ResNodeState ** res_node_state)
 {
 	return E_NOTIMPL;
 }

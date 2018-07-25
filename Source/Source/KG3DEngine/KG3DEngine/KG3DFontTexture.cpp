@@ -191,22 +191,22 @@ namespace
 		case L'<':
 		case L'¡¶':
 		case L'>':
-		case L'¡·':
+//		case L'¡·':
 		case L'[':
-		case L'¡¾':
+//		case L'¡¾':
 		case L']':
-		case L'¡¿':
+//		case L'¡¿':
 		case L'{':
 		case L'£û':
 		case L'}':
-		case L'£ý':
+//		case L'£ý':
 		case L'(':
-		case L'£¨':
+//		case L'£¨':
 		case L')':
-		case L'£©':
+//		case L'£©':
 		case L'-':
-		case L'¡ª':
-		case L'¡­':
+//		case L'¡ª':
+//		case L'¡­':
 			return true;
 		default:
 			return false;
