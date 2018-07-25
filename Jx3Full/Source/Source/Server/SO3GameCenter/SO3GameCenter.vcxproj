@@ -23,14 +23,17 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Server_Lib|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120_xp</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Server|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120_xp</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Server|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120_xp</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -67,6 +70,15 @@
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release_Server|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release_Server|Win32'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release_Server|Win32'" />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Server|Win32'">
+    <IncludePath>$(ProjectDir)..\..\base\base\Include;$(ProjectDir)..\..\base\base\Include\Engine;$(ProjectDir)..\..\..\..\Include;$(ProjectDir)..\..\..\..\ThirdParty\mysql\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Server_Lib|Win32'">
+    <IncludePath>$(ProjectDir)..\..\base\base\Include;$(ProjectDir)..\..\base\base\Include\Engine;$(ProjectDir)..\..\..\..\Include;$(ProjectDir)..\..\..\..\ThirdParty\mysql\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_Server|Win32'">
+    <IncludePath>$(ProjectDir)..\..\base\base\Include;$(ProjectDir)..\..\base\base\Include\Engine;$(ProjectDir)..\..\..\..\Include;$(ProjectDir)..\..\..\..\ThirdParty\mysql\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Server|Win32'">
     <ClCompile>
