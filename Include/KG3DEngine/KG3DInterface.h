@@ -287,6 +287,8 @@ struct KG3D_FACE_DECAL_ARRAY
     unsigned uCount;
 };
 
+interface IEKG3DModel;
+
 class IKG3DModel : public IKG3DResourceBase
 {
 public:
@@ -463,8 +465,8 @@ public:
 	virtual void SetRotationCenter(D3DXVECTOR3* pValue) = 0;
 	virtual void SetScalingCenter(D3DXVECTOR3* pValue) = 0;
 	virtual void SetScalingRotation(D3DXQUATERNION* pValue) = 0;
-//	virtual int GetBindToSocketModel(const char cszSocketName[], std::vector<IEKG3DModel*> &vecpModel) = 0;
-//	virtual int GetBindToSocketModel(const char cszSocketName[], std::vector<IKG3DModel*> &vecpModel) = 0;
+	virtual int GetBindToSocketModel(const char cszSocketName[], std::vector<IEKG3DModel*> &vecpModel);
+	virtual int GetBindToSocketModel(const char cszSocketName[], std::vector<IKG3DModel*> &vecpModel);
 	virtual void GetBindToOrgModel(std::set<IKG3DModel*> &set_OrgModel) = 0;
 };
 
