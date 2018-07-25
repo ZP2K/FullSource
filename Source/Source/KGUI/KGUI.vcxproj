@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B4477EB4-3176-4B7F-A1CB-8839CC8E28D1}</ProjectGuid>
+    <RootNamespace>ui</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120_xp</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v120_xp</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>15.0.27625.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PreBuildEvent>
+      <Command>attrib -r ..\..\Lib\Win32\$(TargetName).lib</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../../Include;../../Include/SO3World;../../../Base/Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;DEBUG;PROFILE;_WINDOWS;_USRDLL;_CLIENT;LUA_V_5;KGUI_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>d3d9.lib;dinput8.lib;winmm.lib;uuid.lib;Rpcrt4.lib;atlsd.lib;commonD.lib;Engine_lua5D.lib;dxguid.lib;d3dx9.lib;Lua5D.lib;KG3DSoundD.lib;imm32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName)D.dll</OutputFile>
+      <AdditionalLibraryDirectories>../../../Base/Lib;../../Lib/Win32;../../../DevEnv/Lib/Debug/FreeType2;../../../DevEnv/Lib/debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>libcp.lib;libc.lib;libci.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(TargetDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+    </Link>
+    <PostBuildEvent>
+      <Command>md ..\..\..\sword3-products
+md ..\..\..\sword3-products\trunk
+md ..\..\..\sword3-products\trunk\client
+copy "$(TargetDir)$(TargetName).dll" ..\..\..\sword3-products\trunk\client
+copy "$(TargetDir)$(TargetName).pdb" ..\..\..\sword3-products\trunk\client
+copy "$(TargetDir)$(TargetName).lib" ..\..\Lib\Win32
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PreBuildEvent>
+      <Command>attrib -r ..\..\Lib\Win32\$(TargetName).lib</Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalIncludeDirectories>../../Include;../../Include/SO3World;../../../Base/Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;_CLIENT;LUA_V_5;KGUI_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>d3d9.lib;dinput8.lib;winmm.lib;uuid.lib;Rpcrt4.lib;common.lib;Engine_lua5.lib;dxguid.lib;d3dx9.lib;atls.lib;Lua5.lib;KG3DSound.lib;imm32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
+      <AdditionalLibraryDirectories>../../../Base/Lib;../../Lib/Win32;../../../DevEnv/Lib/Release/FreeType2;../../../DevEnv/Lib/release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>libcp.lib;libc.lib;libci.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(TargetDir)$(TargetName).pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+    </Link>
+    <PostBuildEvent>
+      <Command>md ..\..\..\sword3-products
+md ..\..\..\sword3-products\trunk
+md ..\..\..\sword3-products\trunk\client
+copy "$(TargetDir)$(TargetName).dll" ..\..\..\sword3-products\trunk\client
+copy "$(TargetDir)$(TargetName).pdb" ..\..\..\sword3-products\trunk\client
+copy "$(TargetDir)$(TargetName).lib" ..\..\Lib\Win32
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="case\uiconfig.cpp" />
+    <ClCompile Include="common\kbintab.cpp" />
+    <ClCompile Include="common\KG_Calculate.cpp" />
+    <ClCompile Include="common\KG_I18N.cpp" />
+    <ClCompile Include="common\KG_TabFile.cpp" />
+    <ClCompile Include="common\ksmallobjectpool.cpp" />
+    <ClCompile Include="common\tblock.cpp" />
+    <ClCompile Include="common\tfixedindexrefcountarray.cpp" />
+    <ClCompile Include="config\kdebugconfig.cpp" />
+    <ClCompile Include="driver\kanimateimage.cpp" />
+    <ClCompile Include="driver\kanimateimagemgr.cpp" />
+    <ClCompile Include="driver\kareatest.cpp" />
+    <ClCompile Include="driver\kcolor.cpp" />
+    <ClCompile Include="driver\kconfig.cpp" />
+    <ClCompile Include="driver\kconststringmgr.cpp" />
+    <ClCompile Include="driver\kfilepathmgr.cpp" />
+    <ClCompile Include="driver\khotkeymgr.cpp" />
+    <ClCompile Include="driver\kimagealpha.cpp" />
+    <ClCompile Include="driver\kimageframe.cpp" />
+    <ClCompile Include="driver\kimageframegroup.cpp" />
+    <ClCompile Include="driver\kimageinfo.cpp" />
+    <ClCompile Include="driver\kimageinfomgr.cpp" />
+    <ClCompile Include="driver\kinput.cpp" />
+    <ClCompile Include="driver\kmusicmgr.cpp" />
+    <ClCompile Include="driver\kpointer.cpp" />
+    <ClCompile Include="driver\kstexfileinfo.cpp" />
+    <ClCompile Include="driver\UIEditorMgr.cpp" />
+    <ClCompile Include="elem\autolocatewnd.cpp" />
+    <ClCompile Include="elem\buildagent\IniWndBuilder.cpp" />
+    <ClCompile Include="elem\buildagent\LuaWndBuilder.cpp" />
+    <ClCompile Include="elem\Components\decoder.cpp" />
+    <ClCompile Include="elem\Components\item.cpp" />
+    <ClCompile Include="elem\Components\itemanimate.cpp" />
+    <ClCompile Include="elem\Components\itembox.cpp" />
+    <ClCompile Include="elem\Components\itemeditmodemgr.cpp" />
+    <ClCompile Include="elem\Components\itemeventmgr.cpp" />
+    <ClCompile Include="elem\Components\itemhandle.cpp" />
+    <ClCompile Include="elem\Components\itemimage.cpp" />
+    <ClCompile Include="elem\Components\itemscene.cpp" />
+    <ClCompile Include="elem\Components\itemshadow.cpp" />
+    <ClCompile Include="elem\Components\itemtext.cpp" />
+    <ClCompile Include="elem\Components\itemtreeleaf.cpp" />
+    <ClCompile Include="elem\Components\pickdropboxmgr.cpp" />
+    <ClCompile Include="elem\tipcenter.cpp" />
+    <ClCompile Include="elem\wndbutton.cpp" />
+    <ClCompile Include="elem\wndcheckbox.cpp" />
+    <ClCompile Include="elem\wndedit.cpp" />
+    <ClCompile Include="elem\wndframe.cpp" />
+    <ClCompile Include="elem\wndminimap.cpp" />
+    <ClCompile Include="elem\wndmovie.cpp" />
+    <ClCompile Include="elem\wndnewscrollbar.cpp" />
+    <ClCompile Include="elem\wndpageset.cpp" />
+    <ClCompile Include="elem\wndscene.cpp" />
+    <ClCompile Include="elem\wndstation.cpp" />
+    <ClCompile Include="elem\wndtexture.cpp" />
+    <ClCompile Include="elem\wndwebpage.cpp" />
+    <ClCompile Include="elem\wndwindow.cpp" />
+    <ClCompile Include="KGUI.cpp" />
+    <ClCompile Include="scheme\kaddonmgr.cpp" />
+    <ClCompile Include="scheme\kcolorschememgr.cpp" />
+    <ClCompile Include="scheme\kfontschememgr.cpp" />
+    <ClCompile Include="scheme\kglobalstringvaluablemrg.cpp" />
+    <ClCompile Include="script\kbasescripttable.cpp" />
+    <ClCompile Include="script\kconstmgr.cpp" />
+    <ClCompile Include="script\kfileclassscripttable.cpp" />
+    <ClCompile Include="script\khotkeyclassscripttable.cpp" />
+    <ClCompile Include="script\kitemhandleclassscripttable.cpp" />
+    <ClCompile Include="script\kmusicscripttsble.cpp" />
+    <ClCompile Include="script\kschemescripttable.cpp" />
+    <ClCompile Include="script\kscriptloader.cpp" />
+    <ClCompile Include="script\kscriptmgr.cpp" />
+    <ClCompile Include="script\ksystemscripttable.cpp" />
+    <ClCompile Include="script\kwndclassscripttable.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="text\ktext.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Include\SO3UI\IKGUI.h" />
+    <ClInclude Include="..\..\Include\SO3UI\ipluginshell.h" />
+    <ClInclude Include="..\..\Include\SO3UI\KJX3UIDefine.h" />
+    <ClInclude Include="case\uiconfig.h" />
+    <ClInclude Include="common\IKG_TabFile.h" />
+    <ClInclude Include="common\kbintab.h" />
+    <ClInclude Include="common\KG_Calculate.h" />
+    <ClInclude Include="common\KG_I18N.h" />
+    <ClInclude Include="common\KG_TabFile.h" />
+    <ClInclude Include="common\ksmallobjectpool.h" />
+    <ClInclude Include="common\tblock.h" />
+    <ClInclude Include="common\tfixedindexrefcountarray.h" />
+    <ClInclude Include="config\kdebugconfig.h" />
+    <ClInclude Include="driver\kanimateimage.h" />
+    <ClInclude Include="driver\kanimateimagemgr.h" />
+    <ClInclude Include="driver\kareatest.h" />
+    <ClInclude Include="driver\kcolor.h" />
+    <ClInclude Include="driver\kconfig.h" />
+    <ClInclude Include="driver\kconststringmgr.h" />
+    <ClInclude Include="driver\kfilepathmgr.h" />
+    <ClInclude Include="driver\khotkeymgr.h" />
+    <ClInclude Include="driver\kimagealpha.h" />
+    <ClInclude Include="driver\kimageframe.h" />
+    <ClInclude Include="driver\kimageframegroup.h" />
+    <ClInclude Include="driver\kimageinfo.h" />
+    <ClInclude Include="driver\kimageinfomgr.h" />
+    <ClInclude Include="driver\kinput.h" />
+    <ClInclude Include="driver\kmusicmgr.h" />
+    <ClInclude Include="driver\kpointer.h" />
+    <ClInclude Include="driver\kstexfileinfo.h" />
+    <ClInclude Include="driver\UIEditorMgr.h" />
+    <ClInclude Include="elem\autolocatewnd.h" />
+    <ClInclude Include="elem\buildagent\IniWndBuilder.h" />
+    <ClInclude Include="elem\buildagent\LuaWndBuilder.h" />
+    <ClInclude Include="elem\Components\decoder.h" />
+    <ClInclude Include="elem\Components\item.h" />
+    <ClInclude Include="elem\Components\itemanimate.h" />
+    <ClInclude Include="elem\Components\itembox.h" />
+    <ClInclude Include="elem\Components\itemeditmodemgr.h" />
+    <ClInclude Include="elem\Components\itemeventmgr.h" />
+    <ClInclude Include="elem\Components\itemhandle.h" />
+    <ClInclude Include="elem\Components\itemimage.h" />
+    <ClInclude Include="elem\Components\itemscene.h" />
+    <ClInclude Include="elem\Components\itemshadow.h" />
+    <ClInclude Include="elem\Components\itemtext.h" />
+    <ClInclude Include="elem\Components\itemtreeleaf.h" />
+    <ClInclude Include="elem\Components\pickdropboxmgr.h" />
+    <ClInclude Include="elem\tipcenter.h" />
+    <ClInclude Include="elem\uiobject.h" />
+    <ClInclude Include="elem\wndbutton.h" />
+    <ClInclude Include="elem\wndcheckbox.h" />
+    <ClInclude Include="elem\wndedit.h" />
+    <ClInclude Include="elem\wndframe.h" />
+    <ClInclude Include="elem\wndmessage.h" />
+    <ClInclude Include="elem\wndminimap.h" />
+    <ClInclude Include="elem\wndmovie.h" />
+    <ClInclude Include="elem\wndnewscrollbar.h" />
+    <ClInclude Include="elem\wndpageset.h" />
+    <ClInclude Include="elem\wndscene.h" />
+    <ClInclude Include="elem\wndstation.h" />
+    <ClInclude Include="elem\wndtexture.h" />
+    <ClInclude Include="elem\wndwebpage.h" />
+    <ClInclude Include="elem\wndwindow.h" />
+    <ClInclude Include="KGUI.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="scheme\kaddonmgr.h" />
+    <ClInclude Include="scheme\kcolorschememgr.h" />
+    <ClInclude Include="scheme\kfontschememgr.h" />
+    <ClInclude Include="scheme\kglobalstringvaluablemrg.h" />
+    <ClInclude Include="script\kbasescripttable.h" />
+    <ClInclude Include="script\kconstmgr.h" />
+    <ClInclude Include="script\kfileclassscripttable.h" />
+    <ClInclude Include="script\khotkeyclassscripttable.h" />
+    <ClInclude Include="script\kitemhandleclassscripttable.h" />
+    <ClInclude Include="script\kmusicscripttsble.h" />
+    <ClInclude Include="script\kschemescripttable.h" />
+    <ClInclude Include="script\kscriptloader.h" />
+    <ClInclude Include="script\kscriptmgr.h" />
+    <ClInclude Include="script\ksystemscripttable.h" />
+    <ClInclude Include="script\kwndclassscripttable.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="text\ktext.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="KGUI.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
