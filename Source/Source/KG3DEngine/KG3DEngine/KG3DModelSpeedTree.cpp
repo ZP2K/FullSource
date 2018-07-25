@@ -3447,7 +3447,7 @@ HRESULT KG3DModelSpeedTree::FrameMove()
 
 BOOL KG3DModelSpeedTree::IsNeedFrameMove()
 {
-	return TRUE;
+	//return TRUE;
 
 	if(!m_lpLeafsData->m_lpLeafVertexBuffer)
 		return TRUE;

@@ -46,8 +46,8 @@ HRESULT KG3DBipMapper::GenerateMapping()
 
 		for (int j=0;j<nSrcBone;j++)
 		{
-			BoneInfoData* pSrcBone = &pSrcBone[j];
-			if(_strcmpi(pDestBone->strBoneName,pSrcBone->strBoneName)==0)
+			BoneInfoData* pSrcBone = &pSrcBones[j];
+			if(_strcmpi(pDestBone->strBoneName, pSrcBone->strBoneName)==0)
 			{
 				bFind = TRUE;
 				DirectMaping mapping;

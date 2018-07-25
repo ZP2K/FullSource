@@ -72,7 +72,7 @@ KG3DSceneSelectionToolSolid::~KG3DSceneSelectionToolSolid()
 
 	for (TypeCtList::iterator it = m_selGroups.begin(); it != m_selGroups.end(); ++it)
 	{
-		TypeObjCt& ct = it->second;
+		auto &ct = const_cast<decltype(it->second)&>(it->second);
 		KG_CUSTOM_HELPERS::TContainerRelease(ct);
 	}
 	m_selGroups.clear();

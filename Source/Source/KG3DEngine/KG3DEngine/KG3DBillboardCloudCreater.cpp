@@ -437,7 +437,7 @@ HRESULT KG3DBillboardCloudCreater::InputModel(KG3DModel* pModel)
 		break;
 	}
 
-	return S_OK;
+//	return S_OK;
 Exit0:
 	return E_FAIL;
 }

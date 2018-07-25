@@ -885,7 +885,7 @@ Exit0:
 HRESULT  KG3DMesh::_LoadPropertyFromIni(IIniFile *piPropertyFile)
 {
     HRESULT hrResult = E_FAIL;
-    HRESULT hrRetCode = E_FAIL;
+    //HRESULT hrRetCode = E_FAIL;
 
     ASSERT(piPropertyFile);
 

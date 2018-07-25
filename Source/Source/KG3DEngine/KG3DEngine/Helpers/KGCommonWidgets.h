@@ -315,6 +315,7 @@ template<> struct _KG3D_DEBUG_CompileTimeError<true> {};
 
 //////////////////////////////////////////////////////////////////////////
 #if defined(DEBUG) | defined(_DEBUG)
+template<> struct _KG3D_DEBUG_CompileTimeError<0> {};
 #define _KG3D_DEBUG_STATIC_CHECK_T(expr, msg) \
 { _KG3D_DEBUG_CompileTimeError<((expr) != 0)> ERROR_##msg; (void)ERROR_##msg; }
 #else

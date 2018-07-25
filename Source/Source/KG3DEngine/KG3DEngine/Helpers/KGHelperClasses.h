@@ -178,7 +178,7 @@ namespace KG_CUSTOM_HELPERS
 	struct SafeRelease 
 	{
 		template<class _Type>
-		void operator()(_Type*& pType){SAFE_RELEASE(pType);}
+		void operator()(_Type*& pType){SAFE_RELEASE(const_cast<_Type*>(pType));}
 	};	
 
 	template<class _Type>
@@ -199,7 +199,7 @@ namespace KG_CUSTOM_HELPERS
 	template<class _Type>
 	BOOL TContainerRelease(_Type& Container)
 	{
-		ForAll(Container, SafeRelease());		
+		ForAll(Container, SafeRelease());
 		Container.clear();
 		return TRUE;
 	}
